@@ -7,6 +7,9 @@
 #include <cmath>
 #include <algorithm>
 #include "LinalgHelpers.h"
+#include "DataCover.h"
+
+#include <ostream>
 
 namespace Helper {
 Scalar euclididan_distance(Vector const &vec1, Vector const &vec2) {
@@ -41,4 +44,26 @@ size_t get_data_dimension(Matrix const &mat)
 {
     return mat[0].size();
 }
+
+
+
 } // Helper
+std::ostream & operator<<(std::ostream &os, Vector const &vec)
+{
+    os << "[";
+    for(auto const x : vec) {
+        os << x << ", ";
+    }
+    os << "\b\b]";
+    return os;
+}
+
+std::ostream & operator<<(std::ostream &os, Matrix const &mat)
+{
+    os << "[";
+    for(auto const& row : mat) {
+        os << row << ", ";
+    }
+    os << "\b\b]";
+    return os;
+}

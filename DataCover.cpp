@@ -171,4 +171,14 @@ std::vector<DataCover::CubeId> DataCover::get_neighbor_cubes(CubeId const &cube_
     }
     return neighbors;
 }
+
 } // Mapper
+std::ostream & operator<<(std::ostream &stream, Mapper::DataCover::CubeId const& vec)
+{
+    stream << "[";
+    for(auto const x : vec) {
+        stream << x << ", ";
+    }
+    stream << "\b\b]";
+    return stream;
+}

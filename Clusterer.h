@@ -11,7 +11,8 @@
 
 namespace Cluster {
 
-using ClusterAssignment = std::vector<std::vector<PointId>>;
+using Cluster = std::vector<PointId>;
+using ClusterAssignment = std::vector<Cluster>;
 
 class Clusterer {
 public:
@@ -21,5 +22,7 @@ private:
 };
 
 } // cluster
+
+
 
 #endif //CLUSTERER_H

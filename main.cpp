@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 #include "SingleLinkage.h"
 #include "DataCover.h"
@@ -27,6 +26,7 @@ int main() {
         std::cout << i << ": " << cover.convert_to_linear_cube_id(cover.convert_to_cube_id(i)) << std::endl;
     }
 
+    std::cout << cover.get_native_cube_id({9,9,9}) << std::endl;
 
     return 0;
 }

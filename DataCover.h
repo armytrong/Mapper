@@ -5,6 +5,8 @@
 #ifndef DATACOVER_H
 #define DATACOVER_H
 
+#include <ostream>
+
 #include "SingleLinkage.h"
 #include "typedefs.h"
 
@@ -58,5 +60,6 @@ private:
 };
 
 } // Mapper
+std::ostream& operator<<(std::ostream& stream, Mapper::DataCover::CubeId const& vec);
 
 #endif //DATACOVER_H
