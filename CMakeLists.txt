@@ -11,4 +11,6 @@ add_executable(Mapper main.cpp
         LinalgHelpers.h
         typedefs.h
         DataCover.cpp
-        DataCover.h)
+        DataCover.h
+        Mapper.cpp
+        Mapper.h)
