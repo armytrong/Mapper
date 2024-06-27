@@ -9,7 +9,7 @@
 #include "typedefs.h"
 
 
-namespace Cluster {
+namespace Mapper {
 
 using Cluster = std::vector<PointId>;
 using ClusterAssignment = std::vector<Cluster>;

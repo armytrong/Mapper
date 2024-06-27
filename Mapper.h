@@ -10,10 +10,7 @@
 
 namespace Mapper {
 
-struct Cluster {
-    std::vector<PointId> points;
-    DataCover::CubeId parent_cube;
-};
+
 class Mapper {
 
 

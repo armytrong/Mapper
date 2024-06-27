@@ -6,7 +6,7 @@
 
 #include <cassert>
 
-namespace Cluster {
+namespace Mapper {
 SingleLinkage::SingleLinkage(std::optional<int> const num_clusters, std::optional<Scalar> const distance_threshold) {
     assert(num_clusters.has_value() or distance_threshold.has_value());
     _num_clusters = num_clusters;
@@ -28,7 +28,7 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data) {
     distance_matrix.resize(numdata, std::vector<double>(numdata, 0.0));
     for (int i = 0; i < numdata; ++i) {
         for (int j = i + 1; j < numdata; ++j) {
-            distance_matrix[i][j] = distance_matrix[j][i] = Helper::euclididan_distance(data[i], data[j]);
+            distance_matrix[i][j] = distance_matrix[j][i] = euclididan_distance(data[i], data[j]);
         }
     }
 

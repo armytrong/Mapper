@@ -6,9 +6,17 @@
 #define TYPEDEFS_H
 #include <vector>
 
+namespace Mapper{
+
 using Scalar = double;
 using Vector = std::vector<Scalar>;
 using Matrix = std::vector<std::vector<Scalar>>;
 using PointId = size_t;
+
+struct Simplex{
+    std::vector<PointId> points;
+};
+}
+
 
 #endif //TYPEDEFS_H

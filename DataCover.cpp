@@ -19,9 +19,9 @@ DataCover::DataCover(
     _resolution(resolution),
     _perc_overlap(perc_overlap),
     _data(data),
-    _data_dimension(Helper::get_data_dimension(data))
+    _data_dimension(get_data_dimension(data))
 {
-    assert(Helper::check_data_equal_dimension(data));
+    assert(check_data_equal_dimension(data));
     assert(perc_overlap <= 0.5);
     if(minima.has_value() and minima.value().size() == _data_dimension) {
         _minima = std::move(minima.value());

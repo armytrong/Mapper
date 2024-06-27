@@ -13,6 +13,7 @@ class Projection {
 };
 
 class CoordinatePlaneProjection : public  Projection{
+public:
     explicit CoordinatePlaneProjection(std::vector<size_t> dimensions);
     [[nodiscard]] Matrix project (Matrix const& data) const override;
 private:
