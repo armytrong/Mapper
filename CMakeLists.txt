@@ -5,12 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Mapper main.cpp
         SingleLinkage.cpp
-        SingleLinkage.h
-        Clusterer.h
         LinalgHelpers.cpp
-        LinalgHelpers.h
-        typedefs.h
         DataCover.cpp
-        DataCover.h
         Mapper.cpp
-        Mapper.h)
+        Projection.cpp)

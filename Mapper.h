@@ -16,7 +16,6 @@ struct Cluster {
 };
 class Mapper {
 
-    static Matrix project(Matrix const& data, std::vector<size_t> const& dimensions);
 
 
 };
