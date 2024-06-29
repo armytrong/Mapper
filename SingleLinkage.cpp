@@ -13,7 +13,7 @@ SingleLinkage::SingleLinkage(std::optional<int> const num_clusters, std::optiona
     _distance_threshold = distance_threshold;
 }
 
-ClusterAssignment SingleLinkage::predict(Matrix const &data) {
+ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId> const &data_filter) {
     Matrix distance_matrix;
     ClusterAssignment clusters;
 
@@ -26,20 +26,22 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data) {
 
     // Initialize distance matrix
     distance_matrix.resize(numdata, std::vector<double>(numdata, 0.0));
-    for (int i = 0; i < numdata; ++i) {
-        for (int j = i + 1; j < numdata; ++j) {
+    for (auto const i : data_filter) {
+        for (auto const j : data_filter) {
+            if(j <= i) continue;
             distance_matrix[i][j] = distance_matrix[j][i] = euclididan_distance(data[i], data[j]);
         }
     }
 
     int const num_clusters = _num_clusters.has_value() ? _num_clusters.value() : 0;
     while (num_clusters < clusters.size()) {
-        Scalar minimum_found_distance = std::numeric_limits<double>::max();
-        int cluster1 = -1, cluster2 = -1;
+        Scalar minimum_found_distance = std::numeric_limits<double>::infinity();
+        std::optional<size_t> cluster1 = std::nullopt, cluster2 = std::nullopt;
 
         // Find the closest pair of clusters
-        for (int i = 0; i < clusters.size(); ++i) {
-            for (int j = i + 1; j < clusters.size(); ++j) {
+        for (auto const i : data_filter) {
+            for (auto const j : data_filter) {
+                if (j <= i) continue;
                 Scalar const dist = min_distance(distance_matrix, clusters[i], clusters[j]);
                 if (dist < minimum_found_distance) {
                     minimum_found_distance = dist;
@@ -49,15 +51,16 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data) {
             }
         }
 
+        // Merge the two closest clusters
+        assert(cluster1.has_value() and cluster2.has_value());
+        clusters[*cluster1].insert(clusters[*cluster1].end(), clusters[*cluster2].begin(), clusters[*cluster2].end());
+        clusters.erase(clusters.begin() + static_cast<long>(*cluster2));
+
         if(_distance_threshold.has_value()) {
             if(minimum_found_distance > _distance_threshold.value()) {
                 return clusters;
             }
         }
-
-        // Merge the two closest clusters
-        clusters[cluster1].insert(clusters[cluster1].end(), clusters[cluster2].begin(), clusters[cluster2].end());
-        clusters.erase(clusters.begin() + cluster2);
     }
     return clusters;
 

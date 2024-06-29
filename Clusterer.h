@@ -17,7 +17,7 @@ using ClusterAssignment = std::vector<Cluster>;
 class Clusterer {
 public:
     virtual ~Clusterer() = default;
-    virtual ClusterAssignment predict(Matrix const& data) = 0;
+    virtual ClusterAssignment predict(Matrix const &data, const std::vector<PointId> &data_filter) = 0;
 private:
 };
 
