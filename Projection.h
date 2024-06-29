@@ -14,10 +14,10 @@ class Projection {
 
 class CoordinatePlaneProjection : public  Projection{
 public:
-    explicit CoordinatePlaneProjection(std::vector<size_t> dimensions);
+    explicit CoordinatePlaneProjection(std::vector<Dimension> dimensions);
     [[nodiscard]] Matrix project (Matrix const& data) const override;
 private:
-    std::vector<size_t> _dimensions;
+    std::vector<Dimension> _dimensions;
 };
 
 } // Mapper

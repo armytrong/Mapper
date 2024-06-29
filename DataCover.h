@@ -38,8 +38,8 @@ private:
     std::vector<CubeId> get_parent_cubes(Vector const& v) const;
     bool is_vector_in_cube(Vector const& vec, CubeId const& cube_id) const;
 
-    [[nodiscard]] Scalar get_data_min_in_dimension(size_t dimension) const;
-    [[nodiscard]] Scalar get_data_max_in_dimension(size_t dimension) const;
+    [[nodiscard]] Scalar get_data_min_in_dimension(Dimension dimension) const;
+    [[nodiscard]] Scalar get_data_max_in_dimension(Dimension dimension) const;
 
     void initialize_minima_from_data();
     void initialize_maxima_from_data();

@@ -5,7 +5,8 @@
 #include "Projection.h"
 
 namespace Mapper {
-CoordinatePlaneProjection::CoordinatePlaneProjection(std::vector<size_t> dimensions) : _dimensions(std::move(dimensions)){}
+CoordinatePlaneProjection::CoordinatePlaneProjection(std::vector<Dimension> dimensions) : _dimensions(std::move
+(dimensions)){}
 
 Matrix CoordinatePlaneProjection::project(const Matrix &data) const {
     Matrix result;

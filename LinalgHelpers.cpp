@@ -40,7 +40,7 @@ bool check_data_equal_dimension(Matrix const &mat)
     return is_equal;
 }
 
-size_t get_data_dimension(Matrix const &mat)
+Dimension get_data_dimension(Matrix const &mat)
 {
     return mat[0].size();
 }

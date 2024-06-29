@@ -38,7 +38,7 @@ DataCover::DataCover(
 DataCover::CubeId DataCover::get_native_cube_id(Vector const& vec) const
 {
     CubeId result(_data_dimension);
-    for(size_t dim = 0; dim < _data_dimension; dim++) {
+    for(Dimension dim = 0; dim < _data_dimension; dim++) {
         Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
         result[dim] = std::floor((vec[dim]-_minima[dim])/cube_size_in_dim);
     }
@@ -56,7 +56,7 @@ std::vector<PointId> DataCover::get_points_in_cube(LinearCubeId const cube_id) c
 DataCover::LinearCubeId DataCover::convert_to_linear_cube_id(CubeId const &cube_id) const
 {
     LinearCubeId result = 0;
-    for (size_t dim = 0; dim < _data_dimension; dim++) {
+    for (Dimension dim = 0; dim < _data_dimension; dim++) {
         result += cube_id[dim]*static_cast<LinearCubeId>(std::pow(_resolution,dim));
     }
     return result;
@@ -65,7 +65,7 @@ DataCover::LinearCubeId DataCover::convert_to_linear_cube_id(CubeId const &cube_
 DataCover::CubeId DataCover::convert_to_cube_id(LinearCubeId const linear_id) const
 {
     CubeId result(_data_dimension);
-    for (size_t dim = 0; dim < _data_dimension; dim++) {
+    for (Dimension dim = 0; dim < _data_dimension; dim++) {
         result[dim] = linear_id / static_cast<LinearCubeId>(std::pow(_resolution,dim)) % _resolution; // TODO: is this correct?
     }
     return result;
@@ -94,7 +94,7 @@ std::vector<DataCover::CubeId> DataCover::get_parent_cubes(Vector const &v) cons
 bool DataCover::is_vector_in_cube(Vector const &vec, CubeId const &cube_id) const
 {
     auto const cube_center = get_cube_center(cube_id);
-    for (size_t dim = 0; dim < _data_dimension; dim++) {
+    for (Dimension dim = 0; dim < _data_dimension; dim++) {
         auto const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
         if(std::abs(vec[dim] - cube_center[dim]) > (0.5+_perc_overlap)*cube_size_in_dim) {
             return false;
@@ -108,7 +108,7 @@ size_t DataCover::get_total_num_cubes() const
     return static_cast<size_t>(std::pow(_resolution, _data_dimension));
 }
 
-Scalar DataCover::get_data_min_in_dimension(size_t const dimension) const
+Scalar DataCover::get_data_min_in_dimension(Dimension const dimension) const
 {
     auto min = std::numeric_limits<Scalar>::max();
     std::ranges::for_each(_data, [&](Vector const& v) {
@@ -119,7 +119,7 @@ Scalar DataCover::get_data_min_in_dimension(size_t const dimension) const
     return min;
 }
 
-Scalar DataCover::get_data_max_in_dimension(size_t const dimension) const
+Scalar DataCover::get_data_max_in_dimension(Dimension const dimension) const
 {
     auto max = std::numeric_limits<Scalar>::min();
     std::ranges::for_each(_data, [&](Vector const& v) {
@@ -133,8 +133,8 @@ Scalar DataCover::get_data_max_in_dimension(size_t const dimension) const
 void DataCover::initialize_minima_from_data()
 {
     _minima.resize(_data_dimension);
-    for(size_t i = 0; i < _data_dimension; i++) {
-        _minima[i] = get_data_min_in_dimension(i);
+    for(Dimension dim = 0; dim < _data_dimension; dim++) {
+        _minima[dim] = get_data_min_in_dimension(dim);
     }
 }
 
@@ -142,15 +142,15 @@ void DataCover::initialize_minima_from_data()
 void DataCover::initialize_maxima_from_data()
 {
     _maxima.resize(_data_dimension);
-    for(size_t i = 0; i < _data_dimension; i++) {
-        _maxima[i] = get_data_max_in_dimension(i);
+    for(Dimension dim = 0; dim < _data_dimension; dim++) {
+        _maxima[dim] = get_data_max_in_dimension(dim);
     }
 }
 
 Vector DataCover::get_cube_center(CubeId const &cube_id) const
 {
     Vector result(_data_dimension);
-    for (size_t dim = 0; dim < _data_dimension; dim++) {
+    for (Dimension dim = 0; dim < _data_dimension; dim++) {
         Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
         result[dim] = (static_cast<double>(cube_id[dim]) + 0.5) * cube_size_in_dim;
     }
@@ -163,7 +163,7 @@ std::vector<DataCover::CubeId> DataCover::get_neighbor_cubes(CubeId const &cube_
     auto const num_neighbors = static_cast<size_t>(std::pow(3, _data_dimension));
     for(size_t i = 0; i < num_neighbors; i++) {
         auto neighbor = cube_id;
-        for (size_t dim = 0; dim < _data_dimension; dim++) {
+        for (Dimension dim = 0; dim < _data_dimension; dim++) {
             size_t const dimension_modifier = - 1 + dim / static_cast<size_t>(std::pow(3,dim)) % 3;
             neighbor[dim] += dimension_modifier;
         }

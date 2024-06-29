@@ -12,6 +12,7 @@ using Scalar = double;
 using Vector = std::vector<Scalar>;
 using Matrix = std::vector<std::vector<Scalar>>;
 using PointId = size_t;
+using Dimension = size_t;
 
 struct Simplex{
     std::vector<PointId> points;
