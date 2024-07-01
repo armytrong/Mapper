@@ -16,7 +16,7 @@ class SingleLinkage : public Clusterer {
 public:
     SingleLinkage(std::optional<int> num_clusters, std::optional<Scalar> distance_threshold);
 
-    ClusterAssignment predict(Matrix const &data, const std::vector<PointId> &data_filter) override;
+    ClusterAssignment predict(Matrix const &data, std::vector<PointId> data_filter) override;
 
 private:
     [[nodiscard]] static Scalar min_distance(

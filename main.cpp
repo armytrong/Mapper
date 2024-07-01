@@ -7,7 +7,7 @@
 int main() {
     using namespace Mapper;
     const Matrix points = {{1, 2}, {3, 4}, {5, 6}, {8, 8}, {9, 9}};
-    SingleLinkage clusterer(std::nullopt, 3);
+    SingleLinkage clusterer(2,std::nullopt);
 
     auto clusters = clusterer.predict(points);
 
