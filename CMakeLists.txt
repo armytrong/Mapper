@@ -8,4 +8,5 @@ add_executable(Mapper main.cpp
         LinalgHelpers.cpp
         DataCover.cpp
         Mapper.cpp
-        Projection.cpp)
+        Projection.cpp
+        CechComplex.cpp)
