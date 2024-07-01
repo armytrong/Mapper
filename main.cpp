@@ -1,15 +1,17 @@
 #include <iostream>
+#include <memory>
 
 #include "SingleLinkage.h"
 #include "DataCover.h"
 #include "typedefs.h"
+#include "Projection.h"
 
 int main() {
     using namespace Mapper;
     const Matrix points = {{1, 2}, {3, 4}, {5, 6}, {8, 8}, {9, 9}};
     SingleLinkage clusterer(2,std::nullopt);
 
-    auto clusters = clusterer.predict(points);
+    auto clusters = clusterer.predict(points,{0,1,2,3,4});
 
     for(int i = 0; i < clusters.size(); i++) {
         std::cout << "Cluster " << i << ": { ";
@@ -28,6 +30,8 @@ int main() {
     }
 
     std::cout << cover.get_native_cube_id({9,9,9}) << std::endl;
+
+    auto projection = std::make_unique<Mapper::CoordinatePlaneProjection>(std::vector<size_t>({0,1}));
 
     return 0;
 }

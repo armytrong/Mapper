@@ -5,16 +5,32 @@
 #ifndef MAPPER_H
 #define MAPPER_H
 #include <vector>
+#include <memory>
 #include "DataCover.h"
 #include "Clusterer.h"
+#include "Projection.h"
+
 
 namespace Mapper {
 
 
 class Mapper {
+public:
+    struct MapperCluster{
+        std::vector<PointId> points;
+        DataCover::LinearCubeId linear_cube_id;
+    };
 
+    using LinearCubeId = DataCover::LinearCubeId;
+    Mapper(std::unique_ptr<Clusterer> clusterer, std::unique_ptr<DataCover> data_cover,
+           std::unique_ptr<Projection> projection);
 
+    [[nodiscard]] std::vector<Simplex> map(Matrix const& data) const;
 
+private:
+    std::unique_ptr<Clusterer> _clusterer;
+    std::unique_ptr<DataCover> _data_cover;
+    std::unique_ptr<Projection> _projection;
 };
 
 } // Mapper
