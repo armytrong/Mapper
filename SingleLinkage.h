@@ -14,8 +14,8 @@ namespace MapperLib {
 
 class SingleLinkage : public Clusterer {
 public:
-    SingleLinkage(std::optional<int> num_clusters, std::optional<Scalar> distance_threshold);
 
+    SingleLinkage(std::optional<int> num_clusters, std::optional<Scalar> distance_threshold);
     ClusterAssignment predict(Matrix const &data, std::vector<PointId> data_filter) override;
 
 private:
@@ -25,7 +25,7 @@ private:
         std::vector<PointId> const& cluster2
     );
 
-    std::optional<int> _num_clusters;
+    std::optional<size_t> _num_clusters;
     std::optional<Scalar> _distance_threshold;
 
 };

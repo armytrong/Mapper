@@ -32,14 +32,13 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId
     std::cout << std::setprecision(2) << std::fixed;
     for (auto const i: data_filter) {
         for (auto const j: data_filter) {
-            //if(j <= i) continue;
+            if(j <= i) continue;
             distance_matrix[i][j] = distance_matrix[j][i] = euclididan_distance(data[i], data[j]);
-            std::cout << distance_matrix[i][j] << ", ";
         }
         std::cout << std::endl;
     }
 
-    int const num_clusters = _num_clusters.has_value() ? _num_clusters.value() : 0;
+    size_t const num_clusters = _num_clusters.has_value() ? _num_clusters.value() : 1;
     while (num_clusters < data_filter.size()) {
         Scalar minimum_found_distance = std::numeric_limits<double>::infinity();
         std::optional<size_t> cluster1, cluster2;
@@ -61,12 +60,12 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId
         assert(cluster1.has_value() and cluster2.has_value());
         clusters[*cluster1].insert(clusters[*cluster1].end(), clusters[*cluster2].begin(), clusters[*cluster2].end());
         //clusters.erase(clusters.begin() + static_cast<long>(*cluster2));
-        data_filter.erase(std::find(data_filter.begin(), data_filter.end(), *cluster2));
+        data_filter.erase(std::ranges::find(data_filter, *cluster2));
 
         if (_distance_threshold.has_value()) {
             if (minimum_found_distance > _distance_threshold.value()) {
                 ClusterAssignment result;
-                for (size_t index: data_filter) {
+                for (size_t const index: data_filter) {
                     result.push_back(clusters[index]);
                 }
                 return result;
