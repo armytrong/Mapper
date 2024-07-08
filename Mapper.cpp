@@ -5,7 +5,10 @@
 #include "Mapper.h"
 #include "DataCover.h"
 
-namespace Mapper {
+#include "CechComplex.h"
+#include "Clusterer.h"
+#include "Projection.h"
+namespace MapperLib {
 
 Mapper::Mapper(std::unique_ptr<Clusterer> clusterer,
                std::unique_ptr<DataCover> data_cover,

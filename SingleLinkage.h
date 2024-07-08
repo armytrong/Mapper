@@ -10,7 +10,7 @@
 #include "Clusterer.h"
 #include "LinalgHelpers.h"
 
-namespace Mapper {
+namespace MapperLib {
 
 class SingleLinkage : public Clusterer {
 public:

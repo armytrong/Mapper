@@ -10,7 +10,7 @@
 #include "typedefs.h"
 #include "Mapper.h"
 
-namespace Mapper {
+namespace MapperLib {
 
 class Complex {
     [[nodiscard]] virtual std::vector<Simplex> generate(std::vector<Mapper::MapperCluster> const &clusters) const = 0;

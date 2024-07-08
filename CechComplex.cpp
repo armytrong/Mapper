@@ -4,7 +4,12 @@
 
 #include "CechComplex.h"
 
-namespace Mapper {
+#include <cassert>
+#include <ranges>
+#include <generator>
+#include <bits/ranges_algo.h>
+
+namespace MapperLib {
 
 std::vector<Simplex> CechComplex::generate(const std::vector<Mapper::MapperCluster> &clusters) const {
     std::vector<Simplex> result(clusters.size());

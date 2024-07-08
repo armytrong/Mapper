@@ -4,7 +4,7 @@
 
 #include "Projection.h"
 
-namespace Mapper {
+namespace MapperLib {
 CoordinatePlaneProjection::CoordinatePlaneProjection(std::vector<Dimension> dimensions) : _dimensions(std::move
 (dimensions)){}
 

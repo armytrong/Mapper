@@ -11,7 +11,7 @@
 
 #include <ostream>
 
-namespace Mapper {
+namespace MapperLib {
 Scalar euclididan_distance(Vector const &vec1, Vector const &vec2) {
     assert(vec1.size() == vec2.size());
     Scalar squared_sum = 0;
@@ -48,7 +48,7 @@ Dimension get_data_dimension(Matrix const &mat)
 
 
 } // Helper
-std::ostream & operator<<(std::ostream &os, Mapper::Vector const &vec)
+std::ostream & operator<<(std::ostream &os, MapperLib::Vector const &vec)
 {
     os << "[";
     for(auto const x : vec) {
@@ -58,7 +58,7 @@ std::ostream & operator<<(std::ostream &os, Mapper::Vector const &vec)
     return os;
 }
 
-std::ostream & operator<<(std::ostream &os, Mapper::Matrix const &mat)
+std::ostream & operator<<(std::ostream &os, MapperLib::Matrix const &mat)
 {
     os << "[";
     for(auto const& row : mat) {

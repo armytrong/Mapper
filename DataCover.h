@@ -10,7 +10,7 @@
 #include "SingleLinkage.h"
 #include "typedefs.h"
 
-namespace Mapper {
+namespace MapperLib {
 
 class DataCover {
 public:

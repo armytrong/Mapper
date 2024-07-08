@@ -6,7 +6,7 @@
 #define TYPEDEFS_H
 #include <vector>
 
-namespace Mapper{
+namespace MapperLib{
 
 using Scalar = double;
 using Vector = std::vector<Scalar>;

@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <cmath>
 
-namespace Mapper {
+namespace MapperLib {
 DataCover::DataCover(
     unsigned const resolution,
     double const perc_overlap,
@@ -173,7 +173,7 @@ std::vector<DataCover::CubeId> DataCover::get_neighbor_cubes(CubeId const &cube_
 }
 
 } // Mapper
-std::ostream & operator<<(std::ostream &stream, Mapper::DataCover::CubeId const& vec)
+std::ostream & operator<<(std::ostream &stream, MapperLib::DataCover::CubeId const& vec)
 {
     stream << "[";
     for(auto const x : vec) {

@@ -6,7 +6,7 @@
 #define MAPPER_PROJECTION_H
 #include "typedefs.h"
 
-namespace Mapper {
+namespace MapperLib{
 
 class Projection {
     [[nodiscard]] virtual Matrix project(Matrix const& data) const = 0;

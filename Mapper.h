@@ -6,13 +6,15 @@
 #define MAPPER_H
 #include <vector>
 #include <memory>
+#include "typedefs.h"
 #include "DataCover.h"
-#include "Clusterer.h"
-#include "Projection.h"
 
 
-namespace Mapper {
 
+namespace MapperLib {
+class Complex;
+class Clusterer;
+class Projection;
 
 class Mapper {
 public:

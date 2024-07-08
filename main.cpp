@@ -7,7 +7,7 @@
 #include "Projection.h"
 
 int main() {
-    using namespace Mapper;
+    using namespace MapperLib;
     const Matrix points = {{1, 2}, {3, 4}, {5, 6}, {8, 8}, {9, 9}};
     SingleLinkage clusterer(2,std::nullopt);
 

@@ -9,7 +9,7 @@
 #include <iostream>
 #include <iomanip>
 
-namespace Mapper {
+namespace MapperLib {
 SingleLinkage::SingleLinkage(std::optional<int> const num_clusters, std::optional<Scalar> const distance_threshold) {
     assert(num_clusters.has_value() or distance_threshold.has_value());
     _num_clusters = num_clusters;
