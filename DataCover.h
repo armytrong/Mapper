@@ -15,9 +15,9 @@ namespace MapperLib {
 class DataCover {
 public:
     using LinearCubeId = size_t;
-    using CubeId = std::vector<size_t>;
+    using CubeId = std::vector<int>;
     explicit DataCover(
-        unsigned resolution,
+        size_t resolution,
         double perc_overlap,
         Matrix const& data,
         std::optional<Vector> minima = std::nullopt,
@@ -26,6 +26,8 @@ public:
 
     [[nodiscard]] CubeId get_native_cube_id(Vector const& vec) const;
     [[nodiscard]] std::vector<PointId> get_points_in_cube(LinearCubeId cube_id) const;
+
+    [[nodiscard]] std::vector<LinearCubeId> get_neighbor_cubes(LinearCubeId linear_cube_id) const;
 
     LinearCubeId convert_to_linear_cube_id(CubeId const& cube_id) const;
     CubeId convert_to_cube_id(LinearCubeId linear_id) const;
@@ -48,7 +50,7 @@ private:
     [[nodiscard]] std::vector<CubeId> get_neighbor_cubes(CubeId const& cube_id) const;
 
 
-    unsigned const _resolution;
+    size_t const _resolution;
     double const _perc_overlap;
     Matrix const& _data;
     size_t const _data_dimension;
@@ -59,7 +61,10 @@ private:
 
 };
 
+
 } // Mapper
-std::ostream& operator<<(std::ostream& stream, Mapper::DataCover::CubeId const& vec);
+std::ostream& operator<<(std::ostream& stream, MapperLib::DataCover::CubeId const& vec);
+
+
 
 #endif //DATACOVER_H

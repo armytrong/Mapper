@@ -10,7 +10,7 @@
 
 namespace MapperLib {
 DataCover::DataCover(
-    unsigned const resolution,
+    size_t const resolution,
     double const perc_overlap,
     Matrix const& data,
     std::optional<Vector> minima,
@@ -41,6 +41,7 @@ DataCover::CubeId DataCover::get_native_cube_id(Vector const& vec) const
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
         Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
         result[dim] = std::floor((vec[dim]-_minima[dim])/cube_size_in_dim);
+        assert(result[dim] >= 0 and result[dim] < static_cast<int>(_resolution));
     }
     return result;
 }
@@ -51,6 +52,17 @@ std::vector<PointId> DataCover::get_points_in_cube(LinearCubeId const cube_id) c
         initialize_cube_cache();
     }
     return _cube_cache.value()[cube_id];
+}
+
+std::vector<DataCover::LinearCubeId> DataCover::get_neighbor_cubes(LinearCubeId const linear_cube_id) const
+{
+    auto const cube_ids = get_neighbor_cubes(convert_to_cube_id(linear_cube_id));
+    std::vector<LinearCubeId> result;
+    for(auto const& cube_id : cube_ids) {
+        if(convert_to_linear_cube_id(cube_id) == linear_cube_id) continue;
+        result.push_back(convert_to_linear_cube_id(cube_id));
+    }
+    return result;
 }
 
 DataCover::LinearCubeId DataCover::convert_to_linear_cube_id(CubeId const &cube_id) const
@@ -76,7 +88,9 @@ void DataCover::initialize_cube_cache() const
     _cube_cache = std::vector<std::vector<PointId>>(get_total_num_cubes());
     for (size_t i = 0; i < _data.size(); i++) {
         auto const cubes = get_parent_cubes(_data[i]);
-        std::ranges::for_each(cubes, [&](CubeId const& cube_id){_cube_cache.value()[convert_to_linear_cube_id(cube_id)].push_back(i);});
+        for(auto const& cube_id : cubes) {
+            _cube_cache.value()[convert_to_linear_cube_id(cube_id)].push_back(i);
+        }
     }
 }
 
@@ -134,7 +148,7 @@ void DataCover::initialize_minima_from_data()
 {
     _minima.resize(_data_dimension);
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
-        _minima[dim] = get_data_min_in_dimension(dim);
+        _minima[dim] = get_data_min_in_dimension(dim) - 0.5; // TODO: ugly
     }
 }
 
@@ -143,7 +157,7 @@ void DataCover::initialize_maxima_from_data()
 {
     _maxima.resize(_data_dimension);
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
-        _maxima[dim] = get_data_max_in_dimension(dim);
+        _maxima[dim] = get_data_max_in_dimension(dim) + 0.5; // TODO: ugly
     }
 }
 
@@ -163,9 +177,20 @@ std::vector<DataCover::CubeId> DataCover::get_neighbor_cubes(CubeId const &cube_
     auto const num_neighbors = static_cast<size_t>(std::pow(3, _data_dimension));
     for(size_t i = 0; i < num_neighbors; i++) {
         auto neighbor = cube_id;
+        bool any_dim_out_of_bounds = false;
         for (Dimension dim = 0; dim < _data_dimension; dim++) {
-            size_t const dimension_modifier = - 1 + dim / static_cast<size_t>(std::pow(3,dim)) % 3;
+            int const dimension_modifier = -1 + static_cast<int>(i/static_cast<int>(std::pow(3,dim))%3);
             neighbor[dim] += dimension_modifier;
+            if(neighbor[dim] < 0 or neighbor[dim] >= static_cast<int>(_resolution)) {
+                any_dim_out_of_bounds = true;
+                break;
+            }
+        }
+        if(any_dim_out_of_bounds) {
+            continue;
+        }
+        if(neighbor == cube_id) {
+            continue;
         }
         neighbors.push_back(neighbor);
     }
