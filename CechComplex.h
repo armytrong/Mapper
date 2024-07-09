@@ -35,8 +35,23 @@ private:
 
     DataCover const &_data_cover;
     Dimension _max_dimension;
+};
 
+class ComplexFactory
+{
+public:
+    virtual ~ComplexFactory() = default;
+    [[nodiscard]] virtual std::unique_ptr<Complex> create_complex(DataCover const& data_cover) const = 0;
+};
 
+class CechComplexFactory final : public ComplexFactory
+{
+public:
+    explicit CechComplexFactory(Dimension max_dimension);
+    [[nodiscard]] std::unique_ptr<Complex> create_complex(DataCover const &data_cover) const override;
+
+private:
+    Dimension _max_dimension;
 };
 
 } // Mapper

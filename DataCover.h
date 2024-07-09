@@ -5,6 +5,7 @@
 #ifndef DATACOVER_H
 #define DATACOVER_H
 
+#include <memory>
 #include <ostream>
 
 #include "SingleLinkage.h"
@@ -59,6 +60,19 @@ private:
 
     mutable std::optional<std::vector<std::vector<PointId>>> _cube_cache;
 
+};
+
+class DataCoverFactory
+{
+public:
+    DataCoverFactory(size_t resolution, double perc_overlap, std::optional<Vector> minima = std::nullopt, std::optional<Vector> maxima = std::nullopt);
+    [[nodiscard]] std::unique_ptr<DataCover> create_data_cover(Matrix const& data) const;
+
+private:
+    size_t _resolution;
+    double _perc_overlap;
+    std::optional<Vector> _minima;
+    std::optional<Vector> _maxima;
 };
 
 

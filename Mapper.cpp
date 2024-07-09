@@ -3,28 +3,36 @@
 //
 
 #include "Mapper.h"
+
+#include <cassert>
+#include <utility>
 #include "DataCover.h"
 
 #include "CechComplex.h"
 #include "Clusterer.h"
 #include "Projection.h"
 namespace MapperLib {
-
-Mapper::Mapper(std::unique_ptr<Clusterer> clusterer,
-               std::unique_ptr<DataCover> data_cover,
-               std::unique_ptr<Projection> projection,
-               std::unique_ptr<Complex> complex) :
-        _clusterer(std::move(clusterer)),
-        _data_cover(std::move(data_cover)),
-        _projection(std::move(projection)),
-        _complex(std::move(complex))
-{}
+Mapper::Mapper(
+        std::shared_ptr<DataCoverFactory> data_cover_factory,
+        std::shared_ptr<ComplexFactory> complex_factory,
+        std::shared_ptr<Clusterer> clusterer,
+        std::shared_ptr<Projection> projection):
+    _data_cover_factory(std::move(data_cover_factory)),
+    _complex_factory(std::move(complex_factory)),
+    _clusterer(std::move(clusterer)),
+    _projection(std::move(projection))
+{
+    assert(_data_cover_factory);
+    assert(_complex_factory);
+    assert(_clusterer);
+    assert(_projection);
+}
 
 std::vector<Simplex> Mapper::map(const Matrix &data)
 {
     auto const projected_data = _projection->project(data);
-    _data_cover = std::make_unique<DataCover>(3,0.5,projected_data);
-    _complex = std::make_unique<CechComplex>(*_data_cover, 2);
+    _data_cover = _data_cover_factory->create_data_cover(projected_data);
+    _complex = _complex_factory->create_complex(*_data_cover);
 
     std::vector<MapperCluster> clusters;
     for(LinearCubeId linear_cube_id = 0; linear_cube_id < _data_cover->get_total_num_cubes(); linear_cube_id++){

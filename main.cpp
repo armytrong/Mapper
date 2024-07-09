@@ -34,12 +34,13 @@ int main() {
 
     std::cout << cover.get_native_cube_id({8,9,9}) << std::endl;
 
-    std::unique_ptr<Clusterer> clusterer_ptr = std::make_unique<SingleLinkage>(1, std::nullopt);
-    auto data_cover_ptr = std::make_unique<DataCover>(2,0.5, data);
-    std::unique_ptr<Projection> projection_ptr = std::make_unique<CoordinatePlaneProjection>(std::vector<size_t>({0,1}));
-    std::unique_ptr<Complex> complex_ptr = std::make_unique<CechComplex>(*data_cover_ptr, 1);
+    auto data_cover_factory = std::make_shared<DataCoverFactory>(2,0.5);
+    std::shared_ptr<ComplexFactory> complex_factory = std::make_shared<CechComplexFactory>(2);
 
-    Mapper mapper(std::move(clusterer_ptr), std::move(data_cover_ptr), std::move(projection_ptr), std::move(complex_ptr));
+    std::shared_ptr<Clusterer> clusterer_ptr = std::make_shared<SingleLinkage>(std::nullopt, 2);
+    std::shared_ptr<Projection> projection_ptr = std::make_shared<CoordinatePlaneProjection>(std::vector<size_t>({0,1}));
+
+    Mapper mapper(data_cover_factory, complex_factory, clusterer_ptr, projection_ptr);
     auto const simplices = mapper.map(data);
     std::cout << "Simplices: " << std::endl;
     for (auto const& simplex : simplices) {

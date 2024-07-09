@@ -7,6 +7,7 @@
 #include <cassert>
 #include <algorithm>
 #include <cmath>
+#include <utility>
 
 namespace MapperLib {
 DataCover::DataCover(
@@ -198,6 +199,24 @@ std::vector<DataCover::CubeId> DataCover::get_neighbor_cubes(CubeId const &cube_
 }
 
 } // Mapper
+MapperLib::DataCoverFactory::DataCoverFactory(
+        size_t const resolution,
+        double const perc_overlap,
+        std::optional<Vector> minima,
+        std::optional<Vector> maxima
+):
+    _resolution(resolution),
+    _perc_overlap(perc_overlap),
+    _minima(std::move(minima)),
+    _maxima(std::move(maxima))
+{
+}
+
+std::unique_ptr<MapperLib::DataCover> MapperLib::DataCoverFactory::create_data_cover(Matrix const &data) const
+{
+    return std::make_unique<DataCover>(_resolution, _perc_overlap, data, _minima, _maxima);
+}
+
 std::ostream & operator<<(std::ostream &stream, MapperLib::DataCover::CubeId const& vec)
 {
     stream << "[";

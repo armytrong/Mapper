@@ -12,6 +12,7 @@
 
 
 namespace MapperLib {
+class ComplexFactory;
 class Complex;
 class Clusterer;
 class Projection;
@@ -26,15 +27,21 @@ public:
     };
 
     using LinearCubeId = DataCover::LinearCubeId;
-    Mapper(std::unique_ptr<Clusterer> clusterer, std::unique_ptr<DataCover> data_cover,
-           std::unique_ptr<Projection> projection, std::unique_ptr<Complex> complex);
+    Mapper(
+        std::shared_ptr<DataCoverFactory> data_cover_factory,
+        std::shared_ptr<ComplexFactory> complex_factory,
+        std::shared_ptr<Clusterer> clusterer,
+        std::shared_ptr<Projection> projection
+    );
 
     [[nodiscard]] std::vector<Simplex> map(Matrix const& data) ;
 
 private:
-    std::unique_ptr<Clusterer> _clusterer;
+    std::shared_ptr<DataCoverFactory> _data_cover_factory;
+    std::shared_ptr<ComplexFactory> _complex_factory;
+    std::shared_ptr<Clusterer> _clusterer;
+    std::shared_ptr<Projection> _projection;
     std::unique_ptr<DataCover> _data_cover;
-    std::unique_ptr<Projection> _projection;
     std::unique_ptr<Complex> _complex;
 };
 

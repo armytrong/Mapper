@@ -110,8 +110,16 @@ std::vector<size_t> CechComplex::get_vector_intersection(std::vector<size_t> vec
     return result;
 }
 
-CechComplex::CechComplex(const DataCover &data_cover, Dimension max_dimension): _data_cover(data_cover),
+CechComplexFactory::CechComplexFactory(Dimension const max_dimension): _max_dimension(max_dimension)
+{}
+
+CechComplex::CechComplex(const DataCover &data_cover, Dimension const max_dimension): _data_cover(data_cover),
                                                                                 _max_dimension(max_dimension) {
 
+}
+
+std::unique_ptr<Complex> CechComplexFactory::create_complex(DataCover const &data_cover) const
+{
+    return std::make_unique<CechComplex>(data_cover, _max_dimension);
 }
 } // Mapper
