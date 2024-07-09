@@ -55,7 +55,7 @@ std::vector<PointId> DataCover::get_points_in_cube(LinearCubeId const cube_id) c
     return _cube_cache.value()[cube_id];
 }
 
-std::vector<DataCover::LinearCubeId> DataCover::get_neighbor_cubes(LinearCubeId const linear_cube_id) const
+std::vector<LinearCubeId> DataCover::get_neighbor_cubes(LinearCubeId const linear_cube_id) const
 {
     auto const cube_ids = get_neighbor_cubes(convert_to_cube_id(linear_cube_id));
     std::vector<LinearCubeId> result;
@@ -66,7 +66,7 @@ std::vector<DataCover::LinearCubeId> DataCover::get_neighbor_cubes(LinearCubeId 
     return result;
 }
 
-DataCover::LinearCubeId DataCover::convert_to_linear_cube_id(CubeId const &cube_id) const
+LinearCubeId DataCover::convert_to_linear_cube_id(CubeId const &cube_id) const
 {
     LinearCubeId result = 0;
     for (Dimension dim = 0; dim < _data_dimension; dim++) {

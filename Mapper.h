@@ -21,7 +21,6 @@ class Mapper {
 public:
 
 
-    using LinearCubeId = DataCover::LinearCubeId;
     Mapper(
         std::shared_ptr<DataCoverFactory> data_cover_factory,
         std::shared_ptr<ComplexFactory> complex_factory,

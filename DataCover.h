@@ -15,7 +15,6 @@ namespace MapperLib {
 
 class DataCover {
 public:
-    using LinearCubeId = size_t;
     using CubeId = std::vector<int>;
     explicit DataCover(
         size_t resolution,
