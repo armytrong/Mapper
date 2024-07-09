@@ -5,6 +5,7 @@
 #ifndef SINGLELINKAGE_H
 #define SINGLELINKAGE_H
 #include <limits>
+#include <memory>
 #include <optional>
 
 #include "Clusterer.h"
@@ -16,6 +17,8 @@ class SingleLinkage : public Clusterer {
 public:
 
     SingleLinkage(std::optional<int> num_clusters, std::optional<Scalar> distance_threshold);
+    [[nodiscard]] static std::shared_ptr<Clusterer> make_shared(std::optional<int> num_clusters, std::optional<Scalar> distance_threshold);
+
     ClusterAssignment predict(Matrix const &data, std::vector<PointId> data_filter) override;
 
 private:

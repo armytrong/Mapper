@@ -16,6 +16,10 @@ SingleLinkage::SingleLinkage(std::optional<int> const num_clusters, std::optiona
     _distance_threshold = distance_threshold;
 }
 
+std::shared_ptr<Clusterer> SingleLinkage::make_shared(std::optional<int> num_clusters,
+    std::optional<Scalar> distance_threshold)
+{ return std::make_shared<SingleLinkage>(num_clusters, distance_threshold);}
+
 ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId> data_filter) {
     Matrix distance_matrix;
     ClusterAssignment clusters;
@@ -29,13 +33,11 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId
 
     // Initialize distance matrix
     distance_matrix.resize(numdata, std::vector<double>(numdata, 0.0));
-    std::cout << std::setprecision(2) << std::fixed;
     for (auto const i: data_filter) {
         for (auto const j: data_filter) {
             if(j <= i) continue;
             distance_matrix[i][j] = distance_matrix[j][i] = euclididan_distance(data[i], data[j]);
         }
-        std::cout << std::endl;
     }
 
     size_t const num_clusters = _num_clusters.has_value() ? _num_clusters.value() : 1;

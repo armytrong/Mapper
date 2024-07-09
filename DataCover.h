@@ -66,6 +66,8 @@ class DataCoverFactory
 {
 public:
     DataCoverFactory(size_t resolution, double perc_overlap, std::optional<Vector> minima = std::nullopt, std::optional<Vector> maxima = std::nullopt);
+    [[nodiscard]] static std::shared_ptr<DataCoverFactory> make_shared(size_t resolution, double perc_overlap, std::optional<Vector> minima = std::nullopt, std::optional<Vector> maxima = std::nullopt);
+
     [[nodiscard]] std::unique_ptr<DataCover> create_data_cover(Matrix const& data) const;
 
 private:

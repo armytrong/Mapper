@@ -7,10 +7,12 @@
 
 #include <vector>
 #include <generator>
+#include <memory>
+
 #include "typedefs.h"
-#include "Mapper.h"
 
 namespace MapperLib {
+class DataCover;
 
 class Complex {
 public:
@@ -48,6 +50,8 @@ class CechComplexFactory final : public ComplexFactory
 {
 public:
     explicit CechComplexFactory(Dimension max_dimension);
+    [[nodiscard]] static std::shared_ptr<ComplexFactory> make_shared(Dimension max_dimension);
+
     [[nodiscard]] std::unique_ptr<Complex> create_complex(DataCover const &data_cover) const override;
 
 private:

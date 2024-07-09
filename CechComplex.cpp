@@ -8,6 +8,7 @@
 #include <ranges>
 #include <generator>
 #include <bits/ranges_algo.h>
+#include "DataCover.h"
 
 namespace MapperLib {
 
@@ -52,7 +53,6 @@ std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<MapperCluster
             assert(subset_indexset.size() == k);
             if(not std::ranges::is_sorted(subset_indexset)) { continue; }
             subset_indexset.push_back(relevant_clusters.size()-1);
-            std::cout << "subset: " << subset_indexset << std::endl;
             if(check_cluster_intersection(relevant_clusters, subset_indexset)) {
                 std::vector<ClusterId> id_vector;
                 for(auto const subset_index : subset_indexset) {
@@ -112,6 +112,9 @@ std::vector<size_t> CechComplex::get_vector_intersection(std::vector<size_t> vec
 
 CechComplexFactory::CechComplexFactory(Dimension const max_dimension): _max_dimension(max_dimension)
 {}
+
+std::shared_ptr<ComplexFactory> CechComplexFactory::make_shared(Dimension max_dimension)
+{return std::make_shared<CechComplexFactory>(max_dimension);}
 
 CechComplex::CechComplex(const DataCover &data_cover, Dimension const max_dimension): _data_cover(data_cover),
                                                                                 _max_dimension(max_dimension) {

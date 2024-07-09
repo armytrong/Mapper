@@ -212,6 +212,12 @@ MapperLib::DataCoverFactory::DataCoverFactory(
 {
 }
 
+std::shared_ptr<MapperLib::DataCoverFactory> MapperLib::DataCoverFactory::make_shared(size_t resolution,
+    double perc_overlap, std::optional<Vector> minima, std::optional<Vector> maxima)
+{
+    return std::make_shared<DataCoverFactory>(resolution, perc_overlap, minima, maxima);
+}
+
 std::unique_ptr<MapperLib::DataCover> MapperLib::DataCoverFactory::create_data_cover(Matrix const &data) const
 {
     return std::make_unique<DataCover>(_resolution, _perc_overlap, data, _minima, _maxima);

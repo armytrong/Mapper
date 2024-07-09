@@ -4,6 +4,8 @@
 
 #ifndef MAPPER_PROJECTION_H
 #define MAPPER_PROJECTION_H
+#include <memory>
+
 #include "typedefs.h"
 
 namespace MapperLib{
@@ -17,6 +19,8 @@ public:
 class CoordinatePlaneProjection final : public  Projection{
 public:
     explicit CoordinatePlaneProjection(std::vector<Dimension> dimensions);
+    [[nodiscard]] static std::shared_ptr<Projection> make_shared(std::vector<Dimension> dimensions);
+
     [[nodiscard]] Matrix project (Matrix const& data) const override;
 private:
     std::vector<Dimension> _dimensions;

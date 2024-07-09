@@ -8,6 +8,11 @@ namespace MapperLib {
 CoordinatePlaneProjection::CoordinatePlaneProjection(std::vector<Dimension> dimensions) : _dimensions(std::move
 (dimensions)){}
 
+std::shared_ptr<Projection> CoordinatePlaneProjection::make_shared(std::vector<Dimension> dimensions)
+{
+    return std::make_shared<CoordinatePlaneProjection>(std::move(dimensions));
+}
+
 Matrix CoordinatePlaneProjection::project(const Matrix &data) const {
     Matrix result;
     result.reserve(data.size());
