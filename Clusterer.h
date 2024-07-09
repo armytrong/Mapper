@@ -5,7 +5,6 @@
 #ifndef CLUSTERER_H
 #define CLUSTERER_H
 
-#include <vector>
 #include "typedefs.h"
 
 

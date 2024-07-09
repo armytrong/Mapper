@@ -30,14 +30,27 @@ Mapper::Mapper(
 
 std::vector<Simplex> Mapper::map(const Matrix &data)
 {
+    std::cerr << data[0] << std::endl;
     auto const projected_data = _projection->project(data);
+    std::cerr << projected_data[0] << std::endl;
+    assert(_data_cover_factory);
+    assert(_complex_factory);
+    assert(_clusterer);
+    assert(_projection);
     _data_cover = _data_cover_factory->create_data_cover(projected_data);
+    assert(_data_cover);
     _complex = _complex_factory->create_complex(*_data_cover);
+    assert(_complex);
+
 
     std::vector<MapperCluster> clusters;
+    std::cerr << " === Mapper ===\n" << std::endl;
+    std::cerr << "-> Starting cluster computation" << std::endl;
     for(LinearCubeId linear_cube_id = 0; linear_cube_id < _data_cover->get_total_num_cubes(); linear_cube_id++){
+        std::cerr << "Computing clusters in cube " << linear_cube_id << "...";
         auto const data_in_cube = _data_cover->get_points_in_cube(linear_cube_id);
         auto const cluster_assignment = _clusterer->predict(data, data_in_cube);
+        std::cerr << "\b\b Found " << cluster_assignment.size() << " Clusters" << std::endl;
         for(auto const& cluster: cluster_assignment){
             clusters.push_back({cluster, clusters.size(), linear_cube_id});
         }

@@ -26,6 +26,7 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId
 
 
     size_t const numdata = data.size();
+    std::cerr << " Numdata: " << numdata << ", DataFilter: " << data_filter << "...";
     clusters.resize(numdata);
     for (PointId i = 0; i < numdata; ++i) {
         clusters[i].push_back(i);
