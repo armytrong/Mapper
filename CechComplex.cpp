@@ -11,7 +11,7 @@
 
 namespace MapperLib {
 
-std::vector<Simplex> CechComplex::generate(const std::vector<Mapper::MapperCluster> &clusters) const {
+std::vector<Simplex> CechComplex::generate(const std::vector<MapperCluster> &clusters) const {
     std::vector<Simplex> result;
     for(Dimension k = 0; k <= _max_dimension; k++){
         auto const k_simplices = generate_k_simplices(clusters, k);
@@ -20,7 +20,7 @@ std::vector<Simplex> CechComplex::generate(const std::vector<Mapper::MapperClust
     return result;
 }
 
-std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<Mapper::MapperCluster> const &clusters, Dimension const k) const
+std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<MapperCluster> const &clusters, Dimension const k) const
 {
     // Create single vertex simplices if k = 0
     if(k == 0) {
@@ -30,7 +30,7 @@ std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<Mapper::Mappe
         }
         return result;
     }
-    std::vector<std::vector<Mapper::MapperCluster const*>> clusters_by_cubes(_data_cover.get_total_num_cubes());
+    std::vector<std::vector<MapperCluster const*>> clusters_by_cubes(_data_cover.get_total_num_cubes());
     for (auto const& cluster : clusters) {
         clusters_by_cubes[cluster.linear_cube_id].push_back(&cluster);
     }
@@ -42,7 +42,7 @@ std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<Mapper::Mappe
     for(auto const& cluster : clusters) {
         auto const root_cube = cluster.linear_cube_id;
         auto const neighbor_cubes = _data_cover.get_neighbor_cubes(root_cube);
-        std::vector<Mapper::MapperCluster const*> relevant_clusters;
+        std::vector<MapperCluster const*> relevant_clusters;
         for (auto const neighbor : neighbor_cubes) {
             relevant_clusters.insert(relevant_clusters.end(), clusters_by_cubes[neighbor].begin(), clusters_by_cubes[neighbor].end());
         }
@@ -54,7 +54,7 @@ std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<Mapper::Mappe
             subset_indexset.push_back(relevant_clusters.size()-1);
             std::cout << "subset: " << subset_indexset << std::endl;
             if(check_cluster_intersection(relevant_clusters, subset_indexset)) {
-                std::vector<Mapper::ClusterId> id_vector;
+                std::vector<ClusterId> id_vector;
                 for(auto const subset_index : subset_indexset) {
                     id_vector.push_back(relevant_clusters[subset_index]->cluster_id);
                 }
@@ -80,7 +80,7 @@ std::generator<std::vector<size_t>> CechComplex::generate_k_subsets_of_range(siz
     co_return;
 }
 
-bool CechComplex::check_cluster_intersection(std::vector<Mapper::MapperCluster const*> const& all_clusters,
+bool CechComplex::check_cluster_intersection(std::vector<MapperCluster const*> const& all_clusters,
     std::vector<size_t> const&  relevant_indices)
 {
     if(all_clusters.empty()) return false;

@@ -15,12 +15,20 @@ using Matrix = std::vector<std::vector<Scalar>>;
 using PointId = size_t;
 using Dimension = size_t;
 using SimplexId = size_t;
+using ClusterId = size_t;
+using LinearCubeId = size_t;
 
 struct Simplex{
     std::vector<PointId> points;
     [[nodiscard]] Dimension dimension() const { return points.size() - 1;}
     [[nodiscard]] size_t num_nodes() const { return points.size(); }
     [[nodiscard]] PointId operator[](size_t index) const {return points[index]; }
+};
+
+struct MapperCluster{
+    std::vector<PointId> points;
+    ClusterId cluster_id;
+    LinearCubeId linear_cube_id;
 };
 }
 

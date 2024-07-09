@@ -19,12 +19,7 @@ class Projection;
 
 class Mapper {
 public:
-    using ClusterId = size_t;
-    struct MapperCluster{
-        std::vector<PointId> points;
-        ClusterId cluster_id;
-        DataCover::LinearCubeId linear_cube_id;
-    };
+
 
     using LinearCubeId = DataCover::LinearCubeId;
     Mapper(
