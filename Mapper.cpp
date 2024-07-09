@@ -12,22 +12,29 @@ namespace MapperLib {
 
 Mapper::Mapper(std::unique_ptr<Clusterer> clusterer,
                std::unique_ptr<DataCover> data_cover,
-               std::unique_ptr<Projection> projection) :
+               std::unique_ptr<Projection> projection,
+               std::unique_ptr<Complex> complex) :
         _clusterer(std::move(clusterer)),
         _data_cover(std::move(data_cover)),
-        _projection(std::move(projection))
+        _projection(std::move(projection)),
+        _complex(std::move(complex))
 {}
 
-std::vector<Simplex> Mapper::map(const Matrix &data) const
+std::vector<Simplex> Mapper::map(const Matrix &data)
 {
+    auto const projected_data = _projection->project(data);
+    _data_cover = std::make_unique<DataCover>(3,0.5,projected_data);
+    _complex = std::make_unique<CechComplex>(*_data_cover, 2);
+
     std::vector<MapperCluster> clusters;
-    for(LinearCubeId id = 0; id < _data_cover->get_total_num_cubes(); id++){
-        auto const data_in_cube = _data_cover->get_points_in_cube(id);
+    for(LinearCubeId linear_cube_id = 0; linear_cube_id < _data_cover->get_total_num_cubes(); linear_cube_id++){
+        auto const data_in_cube = _data_cover->get_points_in_cube(linear_cube_id);
         auto const cluster_assignment = _clusterer->predict(data, data_in_cube);
         for(auto const& cluster: cluster_assignment){
-            clusters.push_back({cluster, id});
+            clusters.push_back({cluster, clusters.size(), linear_cube_id});
         }
     }
+    return _complex->generate(clusters);
 }
 
 

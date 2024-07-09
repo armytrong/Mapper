@@ -5,6 +5,7 @@
 #ifndef TYPEDEFS_H
 #define TYPEDEFS_H
 #include <vector>
+#include <iostream>
 
 namespace MapperLib{
 
@@ -23,5 +24,21 @@ struct Simplex{
 };
 }
 
+
+
+inline std::ostream& operator<<(std::ostream& os, std::vector<size_t> const& vec)
+{
+    os << "[";
+    for(auto const elt: vec) {
+        os << elt << ", ";
+    }
+    os << "\b\b]";
+    return os;
+}
+
+inline std::ostream& operator<<(std::ostream& os, MapperLib::Simplex const& simplex)
+{
+    return os << simplex.points;
+}
 
 #endif //TYPEDEFS_H
