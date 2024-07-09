@@ -22,7 +22,7 @@ int main() {
         std::cout << "\b\b }" << std::endl;
     }
 
-    const Matrix data = {{1,2,3}, {2,3,4}, {3,4,5}, {5,6,7}, {6,7,8}, {6,7,8},{7,8,9},{8,9,10}};
+    const Matrix data = {{1,2,3}, {2,3,4}, {-3,-4,-5}, {5,6,7}, {6,7,8}, {6,7,8},{7,8,9},{8,9,10}};
 
 
     DataCover const cover(2,0.5,data);
@@ -37,7 +37,7 @@ int main() {
     auto data_cover_factory = std::make_shared<DataCoverFactory>(2,0.5);
     std::shared_ptr<ComplexFactory> complex_factory = std::make_shared<CechComplexFactory>(2);
 
-    std::shared_ptr<Clusterer> clusterer_ptr = std::make_shared<SingleLinkage>(std::nullopt, 2);
+    std::shared_ptr<Clusterer> clusterer_ptr = std::make_shared<SingleLinkage>(std::nullopt, 0.5);
     std::shared_ptr<Projection> projection_ptr = std::make_shared<CoordinatePlaneProjection>(std::vector<size_t>({0,1}));
 
     Mapper mapper(data_cover_factory, complex_factory, clusterer_ptr, projection_ptr);
