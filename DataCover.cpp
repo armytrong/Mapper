@@ -40,7 +40,7 @@ DataCover::CubeId DataCover::get_native_cube_id(Vector const& vec) const
 {
     CubeId result(_data_dimension);
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
-        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
+        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(_resolution);
         result[dim] = std::floor((vec[dim]-_minima[dim])/cube_size_in_dim);
         assert(result[dim] >= 0 and result[dim] < static_cast<int>(_resolution));
     }
@@ -99,7 +99,7 @@ std::vector<DataCover::CubeId> DataCover::get_parent_cubes(Vector const &v) cons
 {
     auto const native_cube = get_native_cube_id(v);
     auto const neighbor_cubes = get_neighbor_cubes(native_cube);
-    std::vector<CubeId> parent_cubes;
+    std::vector<CubeId> parent_cubes = {native_cube};
     for (auto const& cube : neighbor_cubes) {
         if(is_vector_in_cube(v, cube)){parent_cubes.push_back(cube);}
     }
@@ -110,7 +110,7 @@ bool DataCover::is_vector_in_cube(Vector const &vec, CubeId const &cube_id) cons
 {
     auto const cube_center = get_cube_center(cube_id);
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        auto const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
+        auto const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(_resolution);
         if(std::abs(vec[dim] - cube_center[dim]) > (0.5+_perc_overlap)*cube_size_in_dim) {
             return false;
         }
@@ -166,8 +166,8 @@ Vector DataCover::get_cube_center(CubeId const &cube_id) const
 {
     Vector result(_data_dimension);
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/_resolution;
-        result[dim] = (static_cast<double>(cube_id[dim]) + 0.5) * cube_size_in_dim;
+        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(_resolution);
+        result[dim] = (static_cast<double>(cube_id[dim]) + 0.5) * cube_size_in_dim + _minima[dim];
     }
     return result;
 }
