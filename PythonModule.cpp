@@ -51,5 +51,8 @@ PYBIND11_MODULE(MapperLib, mod)
         .def(py::init<std::shared_ptr<DataCoverFactory>, std::shared_ptr<ComplexFactory>, std::shared_ptr<Clusterer>, std::shared_ptr<Projection>>(),
             py::arg("data_cover_factory"), py::arg("complex_factory"), py::arg("clusterer"), py::arg("projection"))
         .def("map", &Mapper::map);
+
+    py::class_<Simplex>(mod, "Simplex")
+        .def("points", &Simplex::get_points);
 }
 } //MapperLib

@@ -20,6 +20,7 @@ using LinearCubeId = size_t;
 
 struct Simplex{
     std::vector<PointId> points;
+    [[nodiscard]] std::vector<PointId> get_points(){ return points; }
     [[nodiscard]] Dimension dimension() const { return points.size() - 1;}
     [[nodiscard]] size_t num_nodes() const { return points.size(); }
     [[nodiscard]] PointId operator[](size_t index) const {return points[index]; }
