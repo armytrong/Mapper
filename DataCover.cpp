@@ -93,7 +93,6 @@ void DataCover::initialize_cube_cache() const
             _cube_cache.value()[convert_to_linear_cube_id(cube_id)].push_back(i);
         }
     }
-    std::cerr << "Done." << std::endl;
 
 }
 
