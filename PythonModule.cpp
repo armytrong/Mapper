@@ -10,6 +10,8 @@
 #include "Mapper.h"
 #include "typedefs.h"
 #include "Projection.h"
+#include "SLink_SingleLinkage.h"
+
 namespace MapperLib {
 
 
@@ -29,6 +31,10 @@ PYBIND11_MODULE(MapperLib, mod)
         .def(py::init<std::optional<int>, std::optional<Scalar>>(),py::arg("num_clusters"), py::arg("distance_threshold"))
         .def("make_shared", &SingleLinkage::make_shared)
         .def("predict", &SingleLinkage::predict);
+    py::class_<SLink_SingleLinkage, Clusterer, std::shared_ptr<SLink_SingleLinkage>>(mod, "SLink_SingleLinkage")
+        .def(py::init<std::optional<int>, std::optional<Scalar>>(),py::arg("num_clusters"), py::arg("distance_threshold"))
+        .def("make_shared", &SLink_SingleLinkage::make_shared)
+        .def("predict", &SLink_SingleLinkage::predict);
 
     py::class_<Complex, std::shared_ptr<Complex>>(mod, "Complex")
         .def("generate", &Complex::generate);
@@ -45,7 +51,8 @@ PYBIND11_MODULE(MapperLib, mod)
     py::class_<Projection, std::shared_ptr<Projection>>(mod, "Projection");
     py::class_<CoordinatePlaneProjection, Projection, std::shared_ptr<CoordinatePlaneProjection>>(mod, "CoordinatePlaneProjection")
         .def(py::init<std::vector<Dimension>>(), py::arg("dimensions"))
-        .def("make_shared", &CoordinatePlaneProjection::make_shared);
+        .def("make_shared", &CoordinatePlaneProjection::make_shared)
+        .def("project", &CoordinatePlaneProjection::project);
 
     py::class_<Mapper>(mod, "Mapper")
         .def(py::init<std::shared_ptr<DataCoverFactory>, std::shared_ptr<ComplexFactory>, std::shared_ptr<Clusterer>, std::shared_ptr<Projection>>(),

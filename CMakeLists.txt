@@ -11,7 +11,7 @@ pybind11_add_module(MapperLib PythonModule.cpp
                             Mapper.cpp
                             Projection.cpp
                             CechComplex.cpp
-                            main.cpp)
+                            SLink_SingleLinkage.cpp)
 target_compile_options(MapperLib PRIVATE ${MY_COMPILE_OPTIONS})
 target_link_libraries(MapperLib PRIVATE ${MY_LIBRARY_DEPENDENCIES})
 
@@ -21,4 +21,5 @@ add_executable(Mapper main.cpp
         DataCover.cpp
         Mapper.cpp
         Projection.cpp
-        CechComplex.cpp)
+        CechComplex.cpp
+        SLink_SingleLinkage.cpp)
