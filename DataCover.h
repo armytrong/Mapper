@@ -34,11 +34,12 @@ public:
 
     size_t get_total_num_cubes() const;
 
+    bool is_vector_in_cube(Vector const& vec, CubeId const& cube_id) const;
+
 private:
     void initialize_cube_cache() const;
 
     std::vector<CubeId> get_parent_cubes(Vector const& v) const;
-    bool is_vector_in_cube(Vector const& vec, CubeId const& cube_id) const;
 
     [[nodiscard]] Scalar get_data_min_in_dimension(Dimension dimension) const;
     [[nodiscard]] Scalar get_data_max_in_dimension(Dimension dimension) const;

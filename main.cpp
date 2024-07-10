@@ -6,6 +6,7 @@
 #include "Mapper.h"
 #include "typedefs.h"
 #include "Projection.h"
+#include "SLink_SingleLinkage.h"
 
 int main() {
     using namespace MapperLib;
@@ -37,7 +38,7 @@ int main() {
     auto data_cover_factory = std::make_shared<DataCoverFactory>(2,0.5);
     std::shared_ptr<ComplexFactory> complex_factory = std::make_shared<CechComplexFactory>(2);
 
-    std::shared_ptr<Clusterer> clusterer_ptr = std::make_shared<SingleLinkage>(std::nullopt, 0.5);
+    std::shared_ptr<Clusterer> clusterer_ptr = SLink_SingleLinkage::make_shared(10, {});
     std::shared_ptr<Projection> projection_ptr = std::make_shared<CoordinatePlaneProjection>(std::vector<size_t>({0,1}));
 
     Mapper mapper(data_cover_factory, complex_factory, clusterer_ptr, projection_ptr);

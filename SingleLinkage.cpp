@@ -76,6 +76,7 @@ ClusterAssignment SingleLinkage::predict(Matrix const &data, std::vector<PointId
     }
     ClusterAssignment result;
     for (size_t index: data_filter) {
+        if(clusters[index].size() < 10) continue;
         result.push_back(clusters[index]);
     }
     return result;
