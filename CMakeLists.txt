@@ -23,3 +23,6 @@ add_executable(Mapper main.cpp
         Projection.cpp
         CechComplex.cpp
         SLink_SingleLinkage.cpp)
+
+target_compile_options(MapperLib PRIVATE -Wall -Wextra -Wpedantic -Werror)
+target_compile_options(Mapper PRIVATE -Wall -Wextra -Wpedantic -Werror)
