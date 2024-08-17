@@ -7,7 +7,9 @@
 #include <cassert>
 #include <ranges>
 #include <generator>
-#include <bits/ranges_algo.h>
+#include <algorithm>
+#include <mutex>
+#include <thread>
 #include "DataCover.h"
 
 namespace MapperLib {
@@ -24,6 +26,59 @@ std::vector<Simplex> CechComplex::generate(const std::vector<MapperCluster> &clu
     return result;
 }
 
+CechComplex::SimplexComputer::SimplexComputer(
+    Iterator const begin,
+    Iterator const end,
+    ClustersByCube &clusters_by_cube,
+    Dimension const dim,
+    DataCover const &data_cover,
+    std::vector<Simplex> &result,
+    std::mutex &mutex
+):  _begin(begin),
+    _end(end),
+    _clusters_by_cube(clusters_by_cube),
+    _dim(dim),
+    _data_cover(data_cover),
+    _result(result),
+    _mutex(mutex)
+{
+    _id = SimplexComputer::id_counter++;
+}
+
+void CechComplex::SimplexComputer::compute()
+{
+    assert(not _clusters_by_cube.empty());
+    for(auto cluster_ptr = _begin; cluster_ptr < _end; cluster_ptr++) {
+        auto const& cluster = *cluster_ptr;
+        auto const root_cube = cluster.integer_cube_id;
+
+        // only clusters in neighboring cubes are relevant, as the overlap is fixed to <= 0.5.
+        auto const neighbor_cubes = _data_cover.get_neighbor_cubes(root_cube);
+        std::vector<MapperCluster const*> relevant_clusters;
+        for (auto const neighbor : neighbor_cubes) {
+            relevant_clusters.insert(relevant_clusters.end(), _clusters_by_cube[neighbor].begin(), _clusters_by_cube[neighbor].end());
+        }
+
+        // check that there are enough clusters to make a simplex of dimension _dim
+        if(relevant_clusters.size() < _dim) continue;
+        relevant_clusters.push_back(&cluster);
+        for(auto subset_indexset : generate_k_subsets_of_range(relevant_clusters.size() - 1, _dim)) {
+            assert(subset_indexset.size() == _dim);
+            if(not std::ranges::is_sorted(subset_indexset)) { continue; }
+            subset_indexset.push_back(relevant_clusters.size()-1);
+            if(check_cluster_intersection(relevant_clusters, subset_indexset)) {
+                std::vector<ClusterId> id_vector;
+                for(auto const subset_index : subset_indexset) {
+                    id_vector.push_back(relevant_clusters[subset_index]->cluster_id);
+                }
+                _own_result.emplace_back(id_vector);
+            }
+        }
+    }
+    std::unique_lock lock(_mutex);
+    _result.insert(_result.begin(), _own_result.begin(), _own_result.end());
+}
+
 std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<MapperCluster> const &clusters, Dimension const k) const
 {
     // Create single vertex simplices if k = 0
@@ -34,38 +89,43 @@ std::vector<Simplex> CechComplex::generate_k_simplices(std::vector<MapperCluster
         }
         return result;
     }
-    std::vector<std::vector<MapperCluster const*>> clusters_by_cubes(_data_cover.get_total_num_cubes());
+
+    // Sort clusters into their respective cubes. Do this to decrease lookup-times.
+    ClustersByCube clusters_by_cubes(_data_cover.get_total_num_cubes());
     for (auto const& cluster : clusters) {
-        clusters_by_cubes[cluster.linear_cube_id].push_back(&cluster);
+        clusters_by_cubes[cluster.integer_cube_id].push_back(&cluster);
     }
 
+    // Create at most one thread per cluster
+    auto const num_threads = std::min(NUM_THREADS, clusters.size());
+    std::vector<std::thread> threads;
+    std::vector<SimplexComputer> computers;
+    threads.reserve(num_threads);
+    computers.reserve(num_threads);
+
+    // Save results here, mutex locks results.
+    std::vector<Simplex> results;
+    std::mutex results_mutex;
+
+    // Create computers and threads
+    for(size_t i = 0; i < num_threads; i++) {
+        computers.emplace_back(
+            clusters.begin() + static_cast<unsigned>(i * clusters.size() /num_threads),
+            std::min(clusters.begin() + static_cast<unsigned>((i + 1) * clusters.size()/num_threads), clusters.end()),
+            clusters_by_cubes,
+            k,
+            _data_cover,
+            results,
+            results_mutex
+        );
+        // use computer wrappers to avoid copying the computers.
+        threads.emplace_back(ComputerWrapper{computers.back()});
+    }
     std::vector<Simplex> result;
-
-    // Iterate over all clusters
-    // The iteration order is inefficient as of yet. It would be better to iterate over the cubes and do a lot of computation less often.
-    for(auto const& cluster : clusters) {
-        auto const root_cube = cluster.linear_cube_id;
-        auto const neighbor_cubes = _data_cover.get_neighbor_cubes(root_cube);
-        std::vector<MapperCluster const*> relevant_clusters;
-        for (auto const neighbor : neighbor_cubes) {
-            relevant_clusters.insert(relevant_clusters.end(), clusters_by_cubes[neighbor].begin(), clusters_by_cubes[neighbor].end());
-        }
-        if(relevant_clusters.size() < k) continue;
-        relevant_clusters.push_back(&cluster);
-        for(auto subset_indexset : generate_k_subsets_of_range(relevant_clusters.size() - 1, k)) {
-            assert(subset_indexset.size() == k);
-            if(not std::ranges::is_sorted(subset_indexset)) { continue; }
-            subset_indexset.push_back(relevant_clusters.size()-1);
-            if(check_cluster_intersection(relevant_clusters, subset_indexset)) {
-                std::vector<ClusterId> id_vector;
-                for(auto const subset_index : subset_indexset) {
-                    id_vector.push_back(relevant_clusters[subset_index]->cluster_id);
-                }
-                result.push_back({id_vector});
-            }
-        }
+    for(auto& thread : threads) {
+        thread.join();
     }
-    return result;
+    return results;
 }
 
 std::generator<std::vector<size_t>> CechComplex::generate_k_subsets_of_range(size_t const index_max, size_t const k)
@@ -117,7 +177,9 @@ CechComplexFactory::CechComplexFactory(Dimension const max_dimension): _max_dime
 {}
 
 std::shared_ptr<ComplexFactory> CechComplexFactory::make_shared(Dimension max_dimension)
-{return std::make_shared<CechComplexFactory>(max_dimension);}
+{
+    return std::make_shared<CechComplexFactory>(max_dimension);
+}
 
 CechComplex::CechComplex(const DataCover &data_cover, Dimension const max_dimension): _data_cover(data_cover),
                                                                                 _max_dimension(max_dimension) {
