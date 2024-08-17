@@ -13,6 +13,10 @@ namespace MapperLib {
 using Cluster = std::vector<PointId>;
 using ClusterAssignment = std::vector<Cluster>;
 
+/**
+ * @class Clusterer
+ * @brief Abstract base class for clustering algorithms.
+ */
 class Clusterer {
 public:
     virtual ~Clusterer() = default;

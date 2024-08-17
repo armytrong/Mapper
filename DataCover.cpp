@@ -47,7 +47,7 @@ DataCover::CubeId DataCover::get_native_cube_id(Vector const& vec) const
     return result;
 }
 
-std::vector<PointId> DataCover::get_points_in_cube(LinearCubeId const cube_id) const
+std::vector<PointId> DataCover::get_points_in_cube(IntegerCubeId const cube_id) const
 {
     if(not _cube_cache.has_value()) {
         initialize_cube_cache();
@@ -55,31 +55,31 @@ std::vector<PointId> DataCover::get_points_in_cube(LinearCubeId const cube_id) c
     return _cube_cache.value()[cube_id];
 }
 
-std::vector<LinearCubeId> DataCover::get_neighbor_cubes(LinearCubeId const linear_cube_id) const
+std::vector<IntegerCubeId> DataCover::get_neighbor_cubes(IntegerCubeId const integer_cube_id) const
 {
-    auto const cube_ids = get_neighbor_cubes(convert_to_cube_id(linear_cube_id));
-    std::vector<LinearCubeId> result;
+    auto const cube_ids = get_neighbor_cubes(convert_to_cube_id(integer_cube_id));
+    std::vector<IntegerCubeId> result;
     for(auto const& cube_id : cube_ids) {
-        if(convert_to_linear_cube_id(cube_id) == linear_cube_id) continue;
-        result.push_back(convert_to_linear_cube_id(cube_id));
+        if(convert_to_integer_cube_id(cube_id) == integer_cube_id) continue;
+        result.push_back(convert_to_integer_cube_id(cube_id));
     }
     return result;
 }
 
-LinearCubeId DataCover::convert_to_linear_cube_id(CubeId const &cube_id) const
+IntegerCubeId DataCover::convert_to_integer_cube_id(CubeId const &cube_id) const
 {
-    LinearCubeId result = 0;
+    IntegerCubeId result = 0;
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        result += cube_id[dim]*static_cast<LinearCubeId>(std::pow(_resolution,dim));
+        result += cube_id[dim]*static_cast<IntegerCubeId>(std::pow(_resolution,dim));
     }
     return result;
 }
 
-DataCover::CubeId DataCover::convert_to_cube_id(LinearCubeId const linear_id) const
+DataCover::CubeId DataCover::convert_to_cube_id(IntegerCubeId const integer_cube_id) const
 {
     CubeId result(_data_dimension);
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        result[dim] = linear_id / static_cast<LinearCubeId>(std::pow(_resolution,dim)) % _resolution; // TODO: is this correct?
+        result[dim] = integer_cube_id / static_cast<IntegerCubeId>(std::pow(_resolution,dim)) % _resolution; // TODO: is this correct?
     }
     return result;
 }
@@ -90,7 +90,7 @@ void DataCover::initialize_cube_cache() const
     for (size_t i = 0; i < _data.size(); i++) {
         auto const cubes = get_parent_cubes(_data[i]);
         for(auto const& cube_id : cubes) {
-            _cube_cache.value()[convert_to_linear_cube_id(cube_id)].push_back(i);
+            _cube_cache.value()[convert_to_integer_cube_id(cube_id)].push_back(i);
         }
     }
 

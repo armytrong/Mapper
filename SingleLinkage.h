@@ -12,7 +12,11 @@
 #include "LinalgHelpers.h"
 
 namespace MapperLib {
-
+/**
+ * @class SingleLinkage
+ * @brief primitive implementation of single linkage clustering
+ * @deprecated use SLink_SingleLinkage instead
+ */
 class SingleLinkage : public Clusterer {
 public:
 

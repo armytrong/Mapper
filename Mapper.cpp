@@ -46,13 +46,13 @@ std::vector<Simplex> Mapper::map(const Matrix &data)
     std::vector<MapperCluster> clusters;
     std::cout << " === Mapper ===\n" << std::endl;
     std::cout << "-> Starting cluster computation" << std::endl;
-    for(LinearCubeId linear_cube_id = 0; linear_cube_id < _data_cover->get_total_num_cubes(); linear_cube_id++){
-        std::cout << "-->Computing clusters in cube " << linear_cube_id << "...";
-        auto const data_in_cube = _data_cover->get_points_in_cube(linear_cube_id);
+    for(IntegerCubeId integer_cube_id = 0; integer_cube_id < _data_cover->get_total_num_cubes(); integer_cube_id++){
+        std::cout << "-->Computing clusters in cube " << integer_cube_id << "...";
+        auto const data_in_cube = _data_cover->get_points_in_cube(integer_cube_id);
         auto const cluster_assignment = _clusterer->predict(data, data_in_cube);
         std::cout << "\b\b Found " << cluster_assignment.size() << " Clusters" << std::endl;
         for(auto const& cluster: cluster_assignment){
-            clusters.push_back({cluster, clusters.size(), linear_cube_id});
+            clusters.push_back({cluster, clusters.size(), integer_cube_id});
         }
     }
     return _complex->generate(clusters);

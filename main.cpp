@@ -28,7 +28,7 @@ int main() {
 
     DataCover const cover(2,0.5,data);
     for (size_t i = 0; i < cover.get_total_num_cubes(); i++){
-        std::cout << i << ": " << cover.convert_to_linear_cube_id(cover.convert_to_cube_id(i)) << std::endl;
+        std::cout << i << ": " << cover.convert_to_integer_cube_id(cover.convert_to_cube_id(i)) << std::endl;
         std::cout << cover.convert_to_cube_id(i) << std::endl;
     }
 
@@ -38,7 +38,7 @@ int main() {
     auto data_cover_factory = std::make_shared<DataCoverFactory>(2,0.5);
     std::shared_ptr<ComplexFactory> complex_factory = std::make_shared<CechComplexFactory>(2);
 
-    std::shared_ptr<Clusterer> clusterer_ptr = SLink_SingleLinkage::make_shared(10, {});
+    std::shared_ptr<Clusterer> clusterer_ptr = SLink_SingleLinkage::make_shared({}, 10);
     std::shared_ptr<Projection> projection_ptr = std::make_shared<CoordinatePlaneProjection>(std::vector<size_t>({0,1}));
 
     Mapper mapper(data_cover_factory, complex_factory, clusterer_ptr, projection_ptr);

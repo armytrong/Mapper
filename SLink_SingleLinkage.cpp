@@ -56,10 +56,6 @@ ClusterAssignment SLink_SingleLinkage::predict(Matrix const &data, std::vector<P
         }
     }
 
-    auto const compare_cluster_enter_time = [&](PointId a, PointId b) {
-        return data_entering_cluster_times[a] < data_entering_cluster_times[b];
-    };
-
     auto const find_cluster_representative = [&](PointId id) {
         return cluster_parents[id];
     };

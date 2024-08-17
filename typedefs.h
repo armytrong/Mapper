@@ -16,20 +16,32 @@ using PointId = size_t;
 using Dimension = size_t;
 using SimplexId = size_t;
 using ClusterId = size_t;
-using LinearCubeId = size_t;
+using IntegerCubeId = size_t;
 
+/**
+ * @struct Simplex
+ * @brief Struct representing a simplex
+ *
+ * A simplex consisting of node ids instead of actual points to save space.
+ */
 struct Simplex{
-    std::vector<PointId> points;
+    std::vector<PointId> points; ///< The points making up the simplex
     [[nodiscard]] std::vector<PointId> get_points(){ return points; }
     [[nodiscard]] Dimension dimension() const { return points.size() - 1;}
     [[nodiscard]] size_t num_nodes() const { return points.size(); }
     [[nodiscard]] PointId operator[](size_t index) const {return points[index]; }
 };
 
+/**
+ * @struct MapperCluster
+ * @brief a cluster containign additional information
+ *
+ * This cluster is used in the mapper algorithm to decrease lookup times.
+ */
 struct MapperCluster{
     std::vector<PointId> points;
     ClusterId cluster_id;
-    LinearCubeId linear_cube_id;
+    IntegerCubeId integer_cube_id;
 };
 }
 
