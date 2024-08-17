@@ -62,4 +62,15 @@ inline std::ostream& operator<<(std::ostream& os, MapperLib::Simplex const& simp
     return os << simplex.points;
 }
 
+inline std::ostream& operator<<(std::ostream& os, std::vector<MapperLib::Simplex> const& vec)
+{
+    os << "[";
+    for(auto const& elt: vec) {
+        os << elt << ", ";
+    }
+    os << "\b\b]";
+    return os;
+}
+
+
 #endif //TYPEDEFS_H
