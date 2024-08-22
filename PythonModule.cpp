@@ -22,7 +22,7 @@ PYBIND11_MODULE(MapperLib, mod)
         .def(py::init<size_t, double, Matrix const&>());
     py::class_<DataCoverFactory, std::shared_ptr<DataCoverFactory>>(mod, "DataCoverFactory")
         .def(py::init<size_t, double>(), py::arg("resulution"), py::arg("overlap"))
-        .def("make_shared", &DataCoverFactory::make_shared)
+        .def(py::init<std::vector<size_t>, double>(), py::arg("resolution"), py::arg("overlap"))
         .def("create_data_cover", &DataCoverFactory::create_data_cover);
 
     py::class_<Clusterer, std::shared_ptr<Clusterer>>(mod, "Clusterer")

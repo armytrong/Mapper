@@ -16,14 +16,24 @@ DataCover::DataCover(
     Matrix const& data,
     std::optional<Vector> minima,
     std::optional<Vector> maxima
+): DataCover(std::vector<size_t>(get_data_dimension(data), resolution), perc_overlap, data, std::move(minima), std::move(maxima))
+{}
+
+DataCover::DataCover(
+    std::vector<size_t> resolution,
+    double const perc_overlap,
+    Matrix const &data,
+    std::optional<Vector> minima,
+    std::optional<Vector> maxima
 ):
-    _resolution(resolution),
+    _resolution(std::move(resolution)),
     _perc_overlap(perc_overlap),
     _data(data),
     _data_dimension(get_data_dimension(data))
 {
     assert(check_data_equal_dimension(data));
     assert(perc_overlap <= 0.5);
+    assert(_resolution.size() == _data_dimension);
     if(minima.has_value() and minima.value().size() == _data_dimension) {
         _minima = std::move(minima.value());
     } else {
@@ -40,9 +50,9 @@ DataCover::CubeId DataCover::get_native_cube_id(Vector const& vec) const
 {
     CubeId result(_data_dimension);
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
-        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(_resolution);
+        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(get_num_cubes_in_dimension(dim));
         result[dim] = std::floor((vec[dim]-_minima[dim])/cube_size_in_dim);
-        assert(result[dim] >= 0 and result[dim] < static_cast<int>(_resolution));
+        assert(result[dim] >= 0 and result[dim] < static_cast<int>(get_num_cubes_in_dimension(dim)));
     }
     return result;
 }
@@ -70,7 +80,11 @@ IntegerCubeId DataCover::convert_to_integer_cube_id(CubeId const &cube_id) const
 {
     IntegerCubeId result = 0;
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        result += cube_id[dim]*static_cast<IntegerCubeId>(std::pow(_resolution,dim));
+        size_t r = 1;
+        for(Dimension i = 0; i < dim; i++) {
+            r *= get_num_cubes_in_dimension(i);
+        }
+        result += cube_id[dim]*r;
     }
     return result;
 }
@@ -79,7 +93,11 @@ DataCover::CubeId DataCover::convert_to_cube_id(IntegerCubeId const integer_cube
 {
     CubeId result(_data_dimension);
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        result[dim] = integer_cube_id / static_cast<IntegerCubeId>(std::pow(_resolution,dim)) % _resolution; // TODO: is this correct?
+        size_t r = 1;
+        for(Dimension i = 0; i < dim; i++) {
+            r *= get_num_cubes_in_dimension(i);
+        }
+        result[dim] = integer_cube_id / r % get_num_cubes_in_dimension(dim); // TODO: is this correct?
     }
     return result;
 }
@@ -111,7 +129,7 @@ bool DataCover::is_vector_in_cube(Vector const &vec, CubeId const &cube_id) cons
 {
     auto const cube_center = get_cube_center(cube_id);
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        auto const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(_resolution);
+        auto const cube_size_in_dim = (_maxima[dim] - _minima[dim])/get_num_cubes_in_dimension(dim);
         if(std::abs(vec[dim] - cube_center[dim]) > (0.5+_perc_overlap)*cube_size_in_dim) {
             return false;
         }
@@ -121,7 +139,16 @@ bool DataCover::is_vector_in_cube(Vector const &vec, CubeId const &cube_id) cons
 
 size_t DataCover::get_total_num_cubes() const
 {
-    return static_cast<size_t>(std::pow(_resolution, _data_dimension));
+    size_t result = 1;
+    for (auto const size : _resolution) {
+        result *= size;
+    }
+    return result;
+}
+
+size_t DataCover::get_num_cubes_in_dimension(Dimension const dim) const
+{
+    return _resolution[dim];
 }
 
 Scalar DataCover::get_data_min_in_dimension(Dimension const dimension) const
@@ -167,7 +194,7 @@ Vector DataCover::get_cube_center(CubeId const &cube_id) const
 {
     Vector result(_data_dimension);
     for (Dimension dim = 0; dim < _data_dimension; dim++) {
-        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(_resolution);
+        Scalar const cube_size_in_dim = (_maxima[dim] - _minima[dim])/static_cast<Scalar>(get_num_cubes_in_dimension(dim));
         result[dim] = (static_cast<double>(cube_id[dim]) + 0.5) * cube_size_in_dim + _minima[dim];
     }
     return result;
@@ -183,7 +210,7 @@ std::vector<DataCover::CubeId> DataCover::get_neighbor_cubes(CubeId const &cube_
         for (Dimension dim = 0; dim < _data_dimension; dim++) {
             int const dimension_modifier = -1 + static_cast<int>(i/static_cast<int>(std::pow(3,dim))%3);
             neighbor[dim] += dimension_modifier;
-            if(neighbor[dim] < 0 or neighbor[dim] >= static_cast<int>(_resolution)) {
+            if(neighbor[dim] < 0 or neighbor[dim] >= static_cast<int>(get_num_cubes_in_dimension(dim))) {
                 any_dim_out_of_bounds = true;
                 break;
             }
@@ -206,22 +233,51 @@ MapperLib::DataCoverFactory::DataCoverFactory(
         std::optional<Vector> minima,
         std::optional<Vector> maxima
 ):
-    _resolution(resolution),
+    _single_resolution(resolution),
     _perc_overlap(perc_overlap),
     _minima(std::move(minima)),
     _maxima(std::move(maxima))
+{}
+
+MapperLib::DataCoverFactory::DataCoverFactory(
+    std::vector<size_t> resolution,
+    double const perc_overlap,
+    std::optional<Vector> minima,
+    std::optional<Vector> maxima
+):
+    _resolution(std::move(resolution)),
+    _perc_overlap(perc_overlap),
+    _minima(std::move(minima)),
+    _maxima(std::move(maxima))
+{}
+
+std::shared_ptr<MapperLib::DataCoverFactory> MapperLib::DataCoverFactory::make_shared(
+    size_t resolution,
+    double perc_overlap,
+    std::optional<Vector> minima,
+    std::optional<Vector> maxima
+)
 {
+    return std::make_shared<DataCoverFactory>(resolution, perc_overlap, std::move(minima), std::move(maxima));
 }
 
-std::shared_ptr<MapperLib::DataCoverFactory> MapperLib::DataCoverFactory::make_shared(size_t resolution,
-    double perc_overlap, std::optional<Vector> minima, std::optional<Vector> maxima)
+std::shared_ptr<MapperLib::DataCoverFactory> MapperLib::DataCoverFactory::make_shared(
+    std::vector<size_t> resolution,
+    double perc_overlap,
+    std::optional<Vector> minima,
+    std::optional<Vector> maxima
+)
 {
-    return std::make_shared<DataCoverFactory>(resolution, perc_overlap, minima, maxima);
+    return std::make_shared<DataCoverFactory>(std::move(resolution), perc_overlap, std::move(minima), std::move(maxima));
 }
 
 std::unique_ptr<MapperLib::DataCover> MapperLib::DataCoverFactory::create_data_cover(Matrix const &data) const
 {
-    return std::make_unique<DataCover>(_resolution, _perc_overlap, data, _minima, _maxima);
+    if(_single_resolution.has_value()) {
+        return std::make_unique<DataCover>(_single_resolution.value(), _perc_overlap, data, _minima, _maxima);
+    } else {
+        return std::make_unique<DataCover>(_resolution, _perc_overlap, data, _minima, _maxima);
+    }
 }
 
 std::ostream & operator<<(std::ostream &stream, MapperLib::DataCover::CubeId const& vec)

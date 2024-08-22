@@ -26,7 +26,7 @@ int main() {
     const Matrix data = {{1,2,3}, {2,3,4}, {-3,-4,-5}, {5,6,7}, {6,7,8}, {6,7,8},{7,8,9},{8,9,10}};
 
 
-    DataCover const cover(2,0.5,data);
+    DataCover const cover({2,2,3},0.5,data);
     for (size_t i = 0; i < cover.get_total_num_cubes(); i++){
         std::cout << i << ": " << cover.convert_to_integer_cube_id(cover.convert_to_cube_id(i)) << std::endl;
         std::cout << cover.convert_to_cube_id(i) << std::endl;
@@ -35,7 +35,7 @@ int main() {
 
     std::cout << cover.get_native_cube_id({8,9,9}) << std::endl;
 
-    auto data_cover_factory = std::make_shared<DataCoverFactory>(2,0.5);
+    auto data_cover_factory = DataCoverFactory::make_shared({2,2},0.5);
     std::shared_ptr<ComplexFactory> complex_factory = std::make_shared<CechComplexFactory>(2);
 
     std::shared_ptr<Clusterer> clusterer_ptr = SLink_SingleLinkage::make_shared({}, 10);

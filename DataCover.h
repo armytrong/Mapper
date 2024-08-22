@@ -30,8 +30,24 @@ public:
      * @param minima A vector defining the minima that should be used in each dimension
      * @param maxima A vector defining the maxima that should be used in each dimension
      */
-    explicit DataCover(
+    DataCover(
         size_t resolution,
+        double perc_overlap,
+        Matrix const& data,
+        std::optional<Vector> minima = std::nullopt,
+        std::optional<Vector> maxima = std::nullopt
+    );
+
+    /**
+     * Create a sectioning of the data space into hypercubes.
+     * @param resolution vector defining the number of intervals along each axis
+     * @param perc_overlap Floating point variable declaring how much the hypercubes should overlap, has to be  nonnegative and <= 0.5.
+     * @param data A reference to the data points, to interpolate the minima and maxima
+     * @param minima A vector defining the minima that should be used in each dimension
+     * @param maxima A vector defining the maxima that should be used in each dimension
+     */
+    DataCover(
+        std::vector<size_t> resolution,
         double perc_overlap,
         Matrix const& data,
         std::optional<Vector> minima = std::nullopt,
@@ -80,6 +96,13 @@ public:
     size_t get_total_num_cubes() const;
 
     /**
+     * get the resolution in a certain dimension
+     * @param dim the dimension to query
+     * @return an unsigned integer representing the resolution
+     */
+    size_t get_num_cubes_in_dimension(Dimension dim) const;
+
+    /**
      * Determine whether a data point is inside a cube, taking overlaps into account
      * @param vec the data point
      * @param cube_id the cube to test against
@@ -90,9 +113,24 @@ public:
 private:
     void initialize_cube_cache() const;
 
+    /**
+     * Get all cubes containing the data point v
+     * @param v data point to look up
+     * @return vector of CubeIds containing v
+     */
     std::vector<CubeId> get_parent_cubes(Vector const& v) const;
 
+    /**
+     * get the minimum value of any data point in the given dimension
+     * @param dimension the dimension to query
+     * @return the minimum Scalar in the respective dimension
+     */
     [[nodiscard]] Scalar get_data_min_in_dimension(Dimension dimension) const;
+    /**
+     * get the maximum value of any data point in the given dimension
+     * @param dimension the dimension to query
+     * @return the maximum Scalar in the respective dimension
+     */
     [[nodiscard]] Scalar get_data_max_in_dimension(Dimension dimension) const;
 
     void initialize_minima_from_data();
@@ -102,7 +140,7 @@ private:
     [[nodiscard]] std::vector<CubeId> get_neighbor_cubes(CubeId const& cube_id) const;
 
 
-    size_t const _resolution;
+    std::vector<size_t> _resolution;
     double const _perc_overlap;
     Matrix const& _data;
     size_t const _data_dimension;
@@ -122,16 +160,77 @@ private:
 class DataCoverFactory
 {
 public:
-    DataCoverFactory(size_t resolution, double perc_overlap, std::optional<Vector> minima = std::nullopt, std::optional<Vector> maxima = std::nullopt);
-    [[nodiscard]] static std::shared_ptr<DataCoverFactory> make_shared(size_t resolution, double perc_overlap, std::optional<Vector> minima = std::nullopt, std::optional<Vector> maxima = std::nullopt);
+    /**
+     * Constructor for DataCoverFactory with single resolution
+     * @param resolution Single resolution value for all dimensions
+     * @param perc_overlap Percentage of overlap between hypercubes
+     * @param minima Optional minima for each dimension
+     * @param maxima Optional maxima for each dimension
+     */
+    DataCoverFactory(
+        size_t resolution,
+        double perc_overlap,
+        std::optional<Vector> minima = std::nullopt,
+        std::optional<Vector> maxima = std::nullopt
+    );
 
+    /**
+     * Constructor for DataCoverFactory with multiple resolutions
+     * @param resolution Vector of resolution values for each dimension
+     * @param perc_overlap Percentage of overlap between hypercubes
+     * @param minima Optional minima for each dimension
+     * @param maxima Optional maxima for each dimension
+     */
+    DataCoverFactory(
+        std::vector<size_t> resolution,
+        double perc_overlap,
+        std::optional<Vector> minima = std::nullopt,
+        std::optional<Vector> maxima = std::nullopt
+    );
+
+    /**
+     * Static factory method to create a shared pointer to DataCoverFactory
+     * @param resolution Single resolution value for all dimensions
+     * @param perc_overlap Percentage of overlap between hypercubes
+     * @param minima Optional minima for each dimension
+     * @param maxima Optional maxima for each dimension
+     * @return Shared pointer to a new DataCoverFactory instance
+     */
+    [[nodiscard]] static std::shared_ptr<DataCoverFactory> make_shared(
+        size_t resolution,
+        double perc_overlap,
+        std::optional<Vector> minima = std::nullopt,
+        std::optional<Vector> maxima = std::nullopt
+    );
+
+    /**
+     * Static factory method to create a shared pointer to DataCoverFactory
+     * @param resolution Vector of resolution values for each dimension
+     * @param perc_overlap Percentage of overlap between hypercubes
+     * @param minima Optional minima for each dimension
+     * @param maxima Optional maxima for each dimension
+     * @return Shared pointer to a new DataCoverFactory instance
+     */
+    [[nodiscard]] static std::shared_ptr<DataCoverFactory> make_shared(
+        std::vector<size_t> resolution,
+        double perc_overlap,
+        std::optional<Vector> minima = std::nullopt,
+        std::optional<Vector> maxima = std::nullopt
+    );
+
+    /**
+     * Create a DataCover object
+     * @param data A reference to the data points
+     * @return Unique pointer to a new DataCover instance
+     */
     [[nodiscard]] std::unique_ptr<DataCover> create_data_cover(Matrix const& data) const;
 
 private:
-    size_t _resolution;
-    double _perc_overlap;
-    std::optional<Vector> _minima;
-    std::optional<Vector> _maxima;
+    std::vector<size_t> _resolution; ///< Resolution of the data cover
+    std::optional<size_t> _single_resolution; ///< Single resolution value if applicable
+    double _perc_overlap; ///< Percentage of overlap between hypercubes
+    std::optional<Vector> _minima; ///< Optional minima for each dimension
+    std::optional<Vector> _maxima; ///< Optional maxima for each dimension
 };
 
 
