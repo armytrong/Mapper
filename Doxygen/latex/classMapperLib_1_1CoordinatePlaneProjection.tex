@@ -1,0 +1,86 @@
+\doxysection{Mapper\+Lib\+::Coordinate\+Plane\+Projection Class Reference}
+\hypertarget{classMapperLib_1_1CoordinatePlaneProjection}{}\label{classMapperLib_1_1CoordinatePlaneProjection}\index{MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}}
+
+
+projection of data to coordinate planes  
+
+
+
+
+{\ttfamily \#include $<$Projection.\+h$>$}
+
+Inheritance diagram for Mapper\+Lib\+::Coordinate\+Plane\+Projection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMapperLib_1_1CoordinatePlaneProjection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection_a324e095641d91e01e68fd5c3156cda54}{Coordinate\+Plane\+Projection}} (std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} $>$ dimensions)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} \mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection_a72b2e26dca94bc31372a1328d42f0d01}{project}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&data) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMapperLib_1_1Projection}{Mapper\+Lib\+::\+Projection}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classMapperLib_1_1Projection_a2cdd92dc120ba6f8905952c139088afc}{\texorpdfstring{$\sim$}{\string~}\+Projection}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Projection}{Projection}} $>$ \mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection_a0a5309dde79c8938dc7e0a0059196a45}{make\+\_\+shared}} (std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} $>$ dimensions)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+projection of data to coordinate planes 
+
+This implements a very basic projection algorithm. The data is projected to a chosen coordinate hyperplane 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1CoordinatePlaneProjection_a324e095641d91e01e68fd5c3156cda54}\index{MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}!CoordinatePlaneProjection@{CoordinatePlaneProjection}}
+\index{CoordinatePlaneProjection@{CoordinatePlaneProjection}!MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}}
+\doxysubsubsection{\texorpdfstring{CoordinatePlaneProjection()}{CoordinatePlaneProjection()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1CoordinatePlaneProjection_a324e095641d91e01e68fd5c3156cda54} 
+Mapper\+Lib\+::\+Coordinate\+Plane\+Projection\+::\+Coordinate\+Plane\+Projection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} $>$}]{dimensions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Initialize a projection 
+\begin{DoxyParams}{Parameters}
+{\em dimensions} & the axis included in the coordinate hyperplane \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1CoordinatePlaneProjection_a0a5309dde79c8938dc7e0a0059196a45}\index{MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}!make\_shared@{make\_shared}}
+\index{make\_shared@{make\_shared}!MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}}
+\doxysubsubsection{\texorpdfstring{make\_shared()}{make\_shared()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1CoordinatePlaneProjection_a0a5309dde79c8938dc7e0a0059196a45} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Projection}{Projection}} $>$ Mapper\+Lib\+::\+Coordinate\+Plane\+Projection\+::make\+\_\+shared (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} $>$}]{dimensions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{classMapperLib_1_1CoordinatePlaneProjection_a72b2e26dca94bc31372a1328d42f0d01}\index{MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}!project@{project}}
+\index{project@{project}!MapperLib::CoordinatePlaneProjection@{MapperLib::CoordinatePlaneProjection}}
+\doxysubsubsection{\texorpdfstring{project()}{project()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1CoordinatePlaneProjection_a72b2e26dca94bc31372a1328d42f0d01} 
+\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} Mapper\+Lib\+::\+Coordinate\+Plane\+Projection\+::project (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{data}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+project the data to the coordinate hyperplane defined in the constructor 
+\begin{DoxyParams}{Parameters}
+{\em data} & the data to project \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Matrix of the dimension of the hyperplane containing all projected points 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMapperLib_1_1Projection_a412c0ad07b5e5503e1c67be948819b68}{Mapper\+Lib\+::\+Projection}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Projection_8h}{Projection.\+h}}\item 
+\mbox{\hyperlink{Projection_8cpp}{Projection.\+cpp}}\end{DoxyCompactItemize}

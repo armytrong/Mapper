@@ -1,0 +1,267 @@
+\begin{theindex}
+
+  \item {\texorpdfstring{$\sim$}{\string~}Clusterer}
+    \subitem {MapperLib::Clusterer}, \hyperpage{19}
+  \item {\texorpdfstring{$\sim$}{\string~}Complex}
+    \subitem {MapperLib::Complex}, \hyperpage{20}
+  \item {\texorpdfstring{$\sim$}{\string~}ComplexFactory}
+    \subitem {MapperLib::ComplexFactory}, \hyperpage{21}
+  \item {\texorpdfstring{$\sim$}{\string~}Projection}
+    \subitem {MapperLib::Projection}, \hyperpage{32}
+
+  \indexspace
+
+  \item {CechComplex}
+    \subitem {MapperLib::CechComplex}, \hyperpage{16}
+  \item {CechComplex.cpp}, \hyperpage{37}
+  \item {CechComplex.h}, \hyperpage{37}
+  \item {CechComplexFactory}
+    \subitem {MapperLib::CechComplexFactory}, \hyperpage{17}
+  \item {check\_data\_equal\_dimension}
+    \subitem {MapperLib}, \hyperpage{13}
+  \item {Cluster}
+    \subitem {MapperLib}, \hyperpage{12}
+  \item {cluster\_id}
+    \subitem {MapperLib::MapperCluster}, \hyperpage{31}
+  \item {ClusterAssignment}
+    \subitem {MapperLib}, \hyperpage{12}
+  \item {Clusterer.h}, \hyperpage{39}
+  \item {ClusterId}
+    \subitem {MapperLib}, \hyperpage{12}
+  \item {convert\_to\_cube\_id}
+    \subitem {MapperLib::DataCover}, \hyperpage{25}
+  \item {convert\_to\_integer\_cube\_id}
+    \subitem {MapperLib::DataCover}, \hyperpage{25}
+  \item {CoordinatePlaneProjection}
+    \subitem {MapperLib::CoordinatePlaneProjection}, \hyperpage{22}
+  \item {create\_complex}
+    \subitem {MapperLib::CechComplexFactory}, \hyperpage{18}
+    \subitem {MapperLib::ComplexFactory}, \hyperpage{21}
+  \item {create\_data\_cover}
+    \subitem {MapperLib::DataCoverFactory}, \hyperpage{28}
+  \item {CubeId}
+    \subitem {MapperLib::DataCover}, \hyperpage{24}
+
+  \indexspace
+
+  \item {DataCover}
+    \subitem {MapperLib::DataCover}, \hyperpage{24}
+  \item {DataCover.cpp}, \hyperpage{40}
+    \subitem {operator$<$$<$}, \hyperpage{40}
+  \item {DataCover.h}, \hyperpage{40}
+    \subitem {operator$<$$<$}, \hyperpage{41}
+  \item {DataCoverFactory}
+    \subitem {MapperLib::DataCoverFactory}, \hyperpage{27, 28}
+  \item {Deprecated List}, \hyperpage{1}
+  \item {Dimension}
+    \subitem {MapperLib}, \hyperpage{12}
+  \item {dimension}
+    \subitem {MapperLib::Simplex}, \hyperpage{33}
+
+  \indexspace
+
+  \item {euclididan\_distance}
+    \subitem {MapperLib}, \hyperpage{13}
+
+  \indexspace
+
+  \item {generate}
+    \subitem {MapperLib::CechComplex}, \hyperpage{16}
+    \subitem {MapperLib::Complex}, \hyperpage{20}
+  \item {get\_data\_dimension}
+    \subitem {MapperLib}, \hyperpage{14}
+  \item {get\_native\_cube\_id}
+    \subitem {MapperLib::DataCover}, \hyperpage{25}
+  \item {get\_neighbor\_cubes}
+    \subitem {MapperLib::DataCover}, \hyperpage{25}
+  \item {get\_num\_cubes\_in\_dimension}
+    \subitem {MapperLib::DataCover}, \hyperpage{26}
+  \item {get\_points}
+    \subitem {MapperLib::Simplex}, \hyperpage{33}
+  \item {get\_points\_in\_cube}
+    \subitem {MapperLib::DataCover}, \hyperpage{26}
+  \item {get\_total\_num\_cubes}
+    \subitem {MapperLib::DataCover}, \hyperpage{26}
+
+  \indexspace
+
+  \item {integer\_cube\_id}
+    \subitem {MapperLib::MapperCluster}, \hyperpage{31}
+  \item {IntegerCubeId}
+    \subitem {MapperLib}, \hyperpage{12}
+  \item {is\_vector\_in\_cube}
+    \subitem {MapperLib::DataCover}, \hyperpage{26}
+
+  \indexspace
+
+  \item {LinalgHelpers.cpp}, \hyperpage{43}
+    \subitem {operator$<$$<$}, \hyperpage{43}
+  \item {LinalgHelpers.h}, \hyperpage{43}
+    \subitem {operator$<$$<$}, \hyperpage{44}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{45}
+  \item {main.cpp}, \hyperpage{45}
+    \subitem {main}, \hyperpage{45}
+  \item {make\_shared}
+    \subitem {MapperLib::CechComplexFactory}, \hyperpage{18}
+    \subitem {MapperLib::CoordinatePlaneProjection}, \hyperpage{23}
+    \subitem {MapperLib::DataCoverFactory}, \hyperpage{28, 29}
+    \subitem {MapperLib::SingleLinkage}, \hyperpage{34}
+    \subitem {MapperLib::SLink\_SingleLinkage}, \hyperpage{36}
+  \item {map}
+    \subitem {MapperLib::Mapper}, \hyperpage{30}
+  \item {Mapper}
+    \subitem {MapperLib::Mapper}, \hyperpage{30}
+  \item {Mapper.cpp}, \hyperpage{45}
+  \item {Mapper.h}, \hyperpage{45}
+  \item {MapperLib}, \hyperpage{11}
+    \subitem {check\_data\_equal\_dimension}, \hyperpage{13}
+    \subitem {Cluster}, \hyperpage{12}
+    \subitem {ClusterAssignment}, \hyperpage{12}
+    \subitem {ClusterId}, \hyperpage{12}
+    \subitem {Dimension}, \hyperpage{12}
+    \subitem {euclididan\_distance}, \hyperpage{13}
+    \subitem {get\_data\_dimension}, \hyperpage{14}
+    \subitem {IntegerCubeId}, \hyperpage{12}
+    \subitem {Matrix}, \hyperpage{12}
+    \subitem {maximum\_distance}, \hyperpage{14}
+    \subitem {PointId}, \hyperpage{13}
+    \subitem {print}, \hyperpage{14}
+    \subitem {PYBIND11\_MODULE}, \hyperpage{14}
+    \subitem {Scalar}, \hyperpage{13}
+    \subitem {SimplexId}, \hyperpage{13}
+    \subitem {Vector}, \hyperpage{13}
+  \item {MapperLib::CechComplex}, \hyperpage{15}
+    \subitem {CechComplex}, \hyperpage{16}
+    \subitem {generate}, \hyperpage{16}
+  \item {MapperLib::CechComplexFactory}, \hyperpage{17}
+    \subitem {CechComplexFactory}, \hyperpage{17}
+    \subitem {create\_complex}, \hyperpage{18}
+    \subitem {make\_shared}, \hyperpage{18}
+  \item {MapperLib::Clusterer}, \hyperpage{19}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Clusterer}, 
+		\hyperpage{19}
+    \subitem {predict}, \hyperpage{19}
+  \item {MapperLib::Complex}, \hyperpage{20}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Complex}, \hyperpage{20}
+    \subitem {generate}, \hyperpage{20}
+  \item {MapperLib::ComplexFactory}, \hyperpage{21}
+    \subitem {\texorpdfstring{$\sim$}{\string~}ComplexFactory}, 
+		\hyperpage{21}
+    \subitem {create\_complex}, \hyperpage{21}
+  \item {MapperLib::CoordinatePlaneProjection}, \hyperpage{22}
+    \subitem {CoordinatePlaneProjection}, \hyperpage{22}
+    \subitem {make\_shared}, \hyperpage{23}
+    \subitem {project}, \hyperpage{23}
+  \item {MapperLib::DataCover}, \hyperpage{23}
+    \subitem {convert\_to\_cube\_id}, \hyperpage{25}
+    \subitem {convert\_to\_integer\_cube\_id}, \hyperpage{25}
+    \subitem {CubeId}, \hyperpage{24}
+    \subitem {DataCover}, \hyperpage{24}
+    \subitem {get\_native\_cube\_id}, \hyperpage{25}
+    \subitem {get\_neighbor\_cubes}, \hyperpage{25}
+    \subitem {get\_num\_cubes\_in\_dimension}, \hyperpage{26}
+    \subitem {get\_points\_in\_cube}, \hyperpage{26}
+    \subitem {get\_total\_num\_cubes}, \hyperpage{26}
+    \subitem {is\_vector\_in\_cube}, \hyperpage{26}
+  \item {MapperLib::DataCoverFactory}, \hyperpage{27}
+    \subitem {create\_data\_cover}, \hyperpage{28}
+    \subitem {DataCoverFactory}, \hyperpage{27, 28}
+    \subitem {make\_shared}, \hyperpage{28, 29}
+  \item {MapperLib::Mapper}, \hyperpage{29}
+    \subitem {map}, \hyperpage{30}
+    \subitem {Mapper}, \hyperpage{30}
+  \item {MapperLib::MapperCluster}, \hyperpage{31}
+    \subitem {cluster\_id}, \hyperpage{31}
+    \subitem {integer\_cube\_id}, \hyperpage{31}
+    \subitem {points}, \hyperpage{31}
+  \item {MapperLib::Projection}, \hyperpage{31}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Projection}, 
+		\hyperpage{32}
+    \subitem {project}, \hyperpage{32}
+  \item {MapperLib::Simplex}, \hyperpage{32}
+    \subitem {dimension}, \hyperpage{33}
+    \subitem {get\_points}, \hyperpage{33}
+    \subitem {num\_nodes}, \hyperpage{33}
+    \subitem {operator[]}, \hyperpage{33}
+    \subitem {points}, \hyperpage{33}
+  \item {MapperLib::SingleLinkage}, \hyperpage{33}
+    \subitem {make\_shared}, \hyperpage{34}
+    \subitem {predict}, \hyperpage{34}
+    \subitem {SingleLinkage}, \hyperpage{34}
+  \item {MapperLib::SLink\_SingleLinkage}, \hyperpage{35}
+    \subitem {make\_shared}, \hyperpage{36}
+    \subitem {predict}, \hyperpage{36}
+    \subitem {SLink\_SingleLinkage}, \hyperpage{35}
+  \item {Matrix}
+    \subitem {MapperLib}, \hyperpage{12}
+  \item {maximum\_distance}
+    \subitem {MapperLib}, \hyperpage{14}
+
+  \indexspace
+
+  \item {num\_nodes}
+    \subitem {MapperLib::Simplex}, \hyperpage{33}
+
+  \indexspace
+
+  \item {operator$<$$<$}
+    \subitem {DataCover.cpp}, \hyperpage{40}
+    \subitem {DataCover.h}, \hyperpage{41}
+    \subitem {LinalgHelpers.cpp}, \hyperpage{43}
+    \subitem {LinalgHelpers.h}, \hyperpage{44}
+    \subitem {typedefs.h}, \hyperpage{51}
+  \item {operator[]}
+    \subitem {MapperLib::Simplex}, \hyperpage{33}
+
+  \indexspace
+
+  \item {PointId}
+    \subitem {MapperLib}, \hyperpage{13}
+  \item {points}
+    \subitem {MapperLib::MapperCluster}, \hyperpage{31}
+    \subitem {MapperLib::Simplex}, \hyperpage{33}
+  \item {predict}
+    \subitem {MapperLib::Clusterer}, \hyperpage{19}
+    \subitem {MapperLib::SingleLinkage}, \hyperpage{34}
+    \subitem {MapperLib::SLink\_SingleLinkage}, \hyperpage{36}
+  \item {print}
+    \subitem {MapperLib}, \hyperpage{14}
+  \item {project}
+    \subitem {MapperLib::CoordinatePlaneProjection}, \hyperpage{23}
+    \subitem {MapperLib::Projection}, \hyperpage{32}
+  \item {Projection.cpp}, \hyperpage{46}
+  \item {Projection.h}, \hyperpage{47}
+  \item {PYBIND11\_MODULE}
+    \subitem {MapperLib}, \hyperpage{14}
+  \item {PythonModule.cpp}, \hyperpage{47}
+
+  \indexspace
+
+  \item {Scalar}
+    \subitem {MapperLib}, \hyperpage{13}
+  \item {SimplexId}
+    \subitem {MapperLib}, \hyperpage{13}
+  \item {SingleLinkage}
+    \subitem {MapperLib::SingleLinkage}, \hyperpage{34}
+  \item {SingleLinkage.cpp}, \hyperpage{48}
+  \item {SingleLinkage.h}, \hyperpage{48}
+  \item {SLink\_SingleLinkage}
+    \subitem {MapperLib::SLink\_SingleLinkage}, \hyperpage{35}
+  \item {SLink\_SingleLinkage.cpp}, \hyperpage{49}
+  \item {SLink\_SingleLinkage.h}, \hyperpage{49}
+
+  \indexspace
+
+  \item {typedefs.h}, \hyperpage{50}
+    \subitem {operator$<$$<$}, \hyperpage{51}
+
+  \indexspace
+
+  \item {Vector}
+    \subitem {MapperLib}, \hyperpage{13}
+
+\end{theindex}

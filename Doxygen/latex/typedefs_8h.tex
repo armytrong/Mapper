@@ -1,0 +1,65 @@
+\doxysection{typedefs.\+h File Reference}
+\hypertarget{typedefs_8h}{}\label{typedefs_8h}\index{typedefs.h@{typedefs.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMapperLib_1_1Simplex}{Mapper\+Lib\+::\+Simplex}}
+\begin{DoxyCompactList}\small\item\em Struct representing a simplex. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structMapperLib_1_1MapperCluster}{Mapper\+Lib\+::\+Mapper\+Cluster}}
+\begin{DoxyCompactList}\small\item\em a cluster containign additional information \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceMapperLib}{Mapper\+Lib}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Mapper\+Lib\+::\+Scalar}} = double
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Mapper\+Lib\+::\+Vector}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}$>$
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Mapper\+Lib\+::\+Matrix}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}$>$$>$
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Mapper\+Lib\+::\+Point\+Id}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Mapper\+Lib\+::\+Dimension}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_aafa0f084b7d2217d828b2de319afbdf2}{Mapper\+Lib\+::\+Simplex\+Id}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932}{Mapper\+Lib\+::\+Cluster\+Id}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Mapper\+Lib\+::\+Integer\+Cube\+Id}} = size\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{typedefs_8h_a8b3d67619d9d143f1e0c7fb98b2d6720}{operator$<$$<$}} (std\+::ostream \&os, std\+::vector$<$ size\+\_\+t $>$ const \&vec)
+\item 
+std\+::ostream \& \mbox{\hyperlink{typedefs_8h_a2f58af94d870240f6bb97067088c1092}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{structMapperLib_1_1Simplex}{Mapper\+Lib\+::\+Simplex}} const \&simplex)
+\item 
+std\+::ostream \& \mbox{\hyperlink{typedefs_8h_af262ea45ebd10b5eaa84144778072df9}{operator$<$$<$}} (std\+::ostream \&os, std\+::vector$<$ \mbox{\hyperlink{structMapperLib_1_1Simplex}{Mapper\+Lib\+::\+Simplex}} $>$ const \&vec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{typedefs_8h_a2f58af94d870240f6bb97067088c1092}\index{typedefs.h@{typedefs.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!typedefs.h@{typedefs.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{typedefs_8h_a2f58af94d870240f6bb97067088c1092} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{\mbox{\hyperlink{structMapperLib_1_1Simplex}{Mapper\+Lib\+::\+Simplex}} const \&}]{simplex}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{typedefs_8h_af262ea45ebd10b5eaa84144778072df9}\index{typedefs.h@{typedefs.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!typedefs.h@{typedefs.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{typedefs_8h_af262ea45ebd10b5eaa84144778072df9} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{structMapperLib_1_1Simplex}{Mapper\+Lib\+::\+Simplex}} $>$ const \&}]{vec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{typedefs_8h_a8b3d67619d9d143f1e0c7fb98b2d6720}\index{typedefs.h@{typedefs.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!typedefs.h@{typedefs.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{typedefs_8h_a8b3d67619d9d143f1e0c7fb98b2d6720} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{std\+::vector$<$ size\+\_\+t $>$ const \&}]{vec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

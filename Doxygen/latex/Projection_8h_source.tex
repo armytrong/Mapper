@@ -1,0 +1,35 @@
+\doxysection{Projection.\+h}
+\hypertarget{Projection_8h_source}{}\label{Projection_8h_source}\mbox{\hyperlink{Projection_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jgier\ on\ 27.06.2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAPPER\_PROJECTION\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAPPER\_PROJECTION\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{typedefs.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1Projection}{Projection}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classMapperLib_1_1Projection_a2cdd92dc120ba6f8905952c139088afc}{\string~Projection}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \mbox{\hyperlink{classMapperLib_1_1Projection_a412c0ad07b5e5503e1c67be948819b68}{project}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ data)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection}{CoordinatePlaneProjection}}\ final\ :\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{classMapperLib_1_1Projection}{Projection}}\{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection_a324e095641d91e01e68fd5c3156cda54}{CoordinatePlaneProjection}}(std::vector<Dimension>\ dimensions);}
+\DoxyCodeLine{00035\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ std::shared\_ptr<Projection>\ \mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection_a0a5309dde79c8938dc7e0a0059196a45}{make\_shared}}(std::vector<Dimension>\ dimensions);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection_a72b2e26dca94bc31372a1328d42f0d01}{project}}\ (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ data)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<Dimension>\ \_dimensions;}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \}\ \textcolor{comment}{//\ Mapper}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAPPER\_PROJECTION\_H}}
+
+\end{DoxyCode}

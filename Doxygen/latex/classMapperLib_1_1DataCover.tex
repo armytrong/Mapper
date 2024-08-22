@@ -1,0 +1,204 @@
+\doxysection{Mapper\+Lib\+::Data\+Cover Class Reference}
+\hypertarget{classMapperLib_1_1DataCover}{}\label{classMapperLib_1_1DataCover}\index{MapperLib::DataCover@{MapperLib::DataCover}}
+
+
+Class for sectioning data into hypercubes.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Cover.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} = std\+::vector$<$int$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapperLib_1_1DataCover_aef8eb65410a73c4a3c6ec9c953847cf6}{Data\+Cover}} (size\+\_\+t resolution, double perc\+\_\+overlap, \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&data, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ minima=std\+::nullopt, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ maxima=std\+::nullopt)
+\item 
+\mbox{\hyperlink{classMapperLib_1_1DataCover_aa33a4c3cbdcdcc86fcf8c845d4a8fe03}{Data\+Cover}} (std\+::vector$<$ size\+\_\+t $>$ resolution, double perc\+\_\+overlap, \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&data, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ minima=std\+::nullopt, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ maxima=std\+::nullopt)
+\item 
+\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} \mbox{\hyperlink{classMapperLib_1_1DataCover_a1af4e2627c712ace8b47d6256c8afe4c}{get\+\_\+native\+\_\+cube\+\_\+id}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ \mbox{\hyperlink{classMapperLib_1_1DataCover_a4fa02bd48a0de254705d9fb23bb621b7}{get\+\_\+points\+\_\+in\+\_\+cube}} (\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} cube\+\_\+id) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} $>$ \mbox{\hyperlink{classMapperLib_1_1DataCover_aecc6803f35bf3281e861f68004b4b934}{get\+\_\+neighbor\+\_\+cubes}} (\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} integer\+\_\+cube\+\_\+id) const
+\item 
+\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} \mbox{\hyperlink{classMapperLib_1_1DataCover_a399707d160ed1da4ca1d3c6b8cb976ff}{convert\+\_\+to\+\_\+integer\+\_\+cube\+\_\+id}} (\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} const \&cube\+\_\+id) const
+\item 
+\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} \mbox{\hyperlink{classMapperLib_1_1DataCover_a9efddce3e40b99989103d277a1721a59}{convert\+\_\+to\+\_\+cube\+\_\+id}} (\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} integer\+\_\+cube\+\_\+id) const
+\item 
+size\+\_\+t \mbox{\hyperlink{classMapperLib_1_1DataCover_a3b48796f88dac2ce2e17605fbf2b98c5}{get\+\_\+total\+\_\+num\+\_\+cubes}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classMapperLib_1_1DataCover_a8aa22c414aa2878e721fe0812eb98734}{get\+\_\+num\+\_\+cubes\+\_\+in\+\_\+dimension}} (\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} dim) const
+\item 
+bool \mbox{\hyperlink{classMapperLib_1_1DataCover_ae91d9e1cde3092930f38f20c02719b6d}{is\+\_\+vector\+\_\+in\+\_\+cube}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec, \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} const \&cube\+\_\+id) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for sectioning data into hypercubes. 
+
+This class provides the framework for splitting data into overlapping hypercubes for the \doxylink{classMapperLib_1_1Mapper}{Mapper} algorithm. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}\index{MapperLib::DataCover@{MapperLib::DataCover}!CubeId@{CubeId}}
+\index{CubeId@{CubeId}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{CubeId}{CubeId}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63} 
+using \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Mapper\+Lib\+::\+Data\+Cover\+::\+Cube\+Id}} = std\+::vector$<$int$>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1DataCover_aef8eb65410a73c4a3c6ec9c953847cf6}\index{MapperLib::DataCover@{MapperLib::DataCover}!DataCover@{DataCover}}
+\index{DataCover@{DataCover}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{DataCover()}{DataCover()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_aef8eb65410a73c4a3c6ec9c953847cf6} 
+Mapper\+Lib\+::\+Data\+Cover\+::\+Data\+Cover (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{resolution}{, }\item[{double}]{perc\+\_\+overlap}{, }\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{data}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{minima}{ = {\ttfamily std\+:\+:nullopt}, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{maxima}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption})}
+
+Create a sectioning of the data space into hypercubes. 
+\begin{DoxyParams}{Parameters}
+{\em resolution} & Integer variable declaring how many intervals there should be along each axis \\
+\hline
+{\em perc\+\_\+overlap} & Floating point variable declaring how much the hypercubes should overlap, has to be nonnegative and \texorpdfstring{$<$}{<}= 0.\+5. \\
+\hline
+{\em data} & A reference to the data points, to interpolate the minima and maxima \\
+\hline
+{\em minima} & A vector defining the minima that should be used in each dimension \\
+\hline
+{\em maxima} & A vector defining the maxima that should be used in each dimension \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMapperLib_1_1DataCover_aa33a4c3cbdcdcc86fcf8c845d4a8fe03}\index{MapperLib::DataCover@{MapperLib::DataCover}!DataCover@{DataCover}}
+\index{DataCover@{DataCover}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{DataCover()}{DataCover()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_aa33a4c3cbdcdcc86fcf8c845d4a8fe03} 
+Mapper\+Lib\+::\+Data\+Cover\+::\+Data\+Cover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{resolution}{, }\item[{double}]{perc\+\_\+overlap}{, }\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{data}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{minima}{ = {\ttfamily std\+:\+:nullopt}, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{maxima}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption})}
+
+Create a sectioning of the data space into hypercubes. 
+\begin{DoxyParams}{Parameters}
+{\em resolution} & vector defining the number of intervals along each axis \\
+\hline
+{\em perc\+\_\+overlap} & Floating point variable declaring how much the hypercubes should overlap, has to be nonnegative and \texorpdfstring{$<$}{<}= 0.\+5. \\
+\hline
+{\em data} & A reference to the data points, to interpolate the minima and maxima \\
+\hline
+{\em minima} & A vector defining the minima that should be used in each dimension \\
+\hline
+{\em maxima} & A vector defining the maxima that should be used in each dimension \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1DataCover_a9efddce3e40b99989103d277a1721a59}\index{MapperLib::DataCover@{MapperLib::DataCover}!convert\_to\_cube\_id@{convert\_to\_cube\_id}}
+\index{convert\_to\_cube\_id@{convert\_to\_cube\_id}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_cube\_id()}{convert\_to\_cube\_id()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a9efddce3e40b99989103d277a1721a59} 
+\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Data\+Cover\+::\+Cube\+Id}} Mapper\+Lib\+::\+Data\+Cover\+::convert\+\_\+to\+\_\+cube\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}}}]{integer\+\_\+cube\+\_\+id}{}\end{DoxyParamCaption}) const}
+
+Convert the numerical integer cube id of a cube to its coordinate in the cube grid 
+\begin{DoxyParams}{Parameters}
+{\em integer\+\_\+cube\+\_\+id} & the id to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a cube id, i.\+e. the coordinates of the cube in the grid. 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCover_a399707d160ed1da4ca1d3c6b8cb976ff}\index{MapperLib::DataCover@{MapperLib::DataCover}!convert\_to\_integer\_cube\_id@{convert\_to\_integer\_cube\_id}}
+\index{convert\_to\_integer\_cube\_id@{convert\_to\_integer\_cube\_id}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{convert\_to\_integer\_cube\_id()}{convert\_to\_integer\_cube\_id()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a399707d160ed1da4ca1d3c6b8cb976ff} 
+\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} Mapper\+Lib\+::\+Data\+Cover\+::convert\+\_\+to\+\_\+integer\+\_\+cube\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} const \&}]{cube\+\_\+id}{}\end{DoxyParamCaption}) const}
+
+Convert the coordinates of a cube (i.\+e. the cube id) to the integer id 
+\begin{DoxyParams}{Parameters}
+{\em cube\+\_\+id} & the id to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an integer uniquely representing the cube 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCover_a1af4e2627c712ace8b47d6256c8afe4c}\index{MapperLib::DataCover@{MapperLib::DataCover}!get\_native\_cube\_id@{get\_native\_cube\_id}}
+\index{get\_native\_cube\_id@{get\_native\_cube\_id}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{get\_native\_cube\_id()}{get\_native\_cube\_id()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a1af4e2627c712ace8b47d6256c8afe4c} 
+\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Data\+Cover\+::\+Cube\+Id}} Mapper\+Lib\+::\+Data\+Cover\+::get\+\_\+native\+\_\+cube\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+Compute the cube a vector lies in disregarding the overlaps 
+\begin{DoxyParams}{Parameters}
+{\em vec} & data point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id of the native cube of vec 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCover_aecc6803f35bf3281e861f68004b4b934}\index{MapperLib::DataCover@{MapperLib::DataCover}!get\_neighbor\_cubes@{get\_neighbor\_cubes}}
+\index{get\_neighbor\_cubes@{get\_neighbor\_cubes}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{get\_neighbor\_cubes()}{get\_neighbor\_cubes()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_aecc6803f35bf3281e861f68004b4b934} 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} $>$ Mapper\+Lib\+::\+Data\+Cover\+::get\+\_\+neighbor\+\_\+cubes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}}}]{integer\+\_\+cube\+\_\+id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+Get all cubes neighboring the given cube 
+\begin{DoxyParams}{Parameters}
+{\em integer\+\_\+cube\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector of cube ids 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCover_a8aa22c414aa2878e721fe0812eb98734}\index{MapperLib::DataCover@{MapperLib::DataCover}!get\_num\_cubes\_in\_dimension@{get\_num\_cubes\_in\_dimension}}
+\index{get\_num\_cubes\_in\_dimension@{get\_num\_cubes\_in\_dimension}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{get\_num\_cubes\_in\_dimension()}{get\_num\_cubes\_in\_dimension()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a8aa22c414aa2878e721fe0812eb98734} 
+size\+\_\+t Mapper\+Lib\+::\+Data\+Cover\+::get\+\_\+num\+\_\+cubes\+\_\+in\+\_\+dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}}]{dim}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classMapperLib_1_1DataCover_a4fa02bd48a0de254705d9fb23bb621b7}\index{MapperLib::DataCover@{MapperLib::DataCover}!get\_points\_in\_cube@{get\_points\_in\_cube}}
+\index{get\_points\_in\_cube@{get\_points\_in\_cube}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{get\_points\_in\_cube()}{get\_points\_in\_cube()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a4fa02bd48a0de254705d9fb23bb621b7} 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ Mapper\+Lib\+::\+Data\+Cover\+::get\+\_\+points\+\_\+in\+\_\+cube (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}}}]{cube\+\_\+id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+Get the indices of the points in a given cube. 
+\begin{DoxyParams}{Parameters}
+{\em cube\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of points in the cube 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCover_a3b48796f88dac2ce2e17605fbf2b98c5}\index{MapperLib::DataCover@{MapperLib::DataCover}!get\_total\_num\_cubes@{get\_total\_num\_cubes}}
+\index{get\_total\_num\_cubes@{get\_total\_num\_cubes}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{get\_total\_num\_cubes()}{get\_total\_num\_cubes()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_a3b48796f88dac2ce2e17605fbf2b98c5} 
+size\+\_\+t Mapper\+Lib\+::\+Data\+Cover\+::get\+\_\+total\+\_\+num\+\_\+cubes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+get the number of all cubes in the cover \begin{DoxyReturn}{Returns}
+number of cubes 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCover_ae91d9e1cde3092930f38f20c02719b6d}\index{MapperLib::DataCover@{MapperLib::DataCover}!is\_vector\_in\_cube@{is\_vector\_in\_cube}}
+\index{is\_vector\_in\_cube@{is\_vector\_in\_cube}!MapperLib::DataCover@{MapperLib::DataCover}}
+\doxysubsubsection{\texorpdfstring{is\_vector\_in\_cube()}{is\_vector\_in\_cube()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCover_ae91d9e1cde3092930f38f20c02719b6d} 
+bool Mapper\+Lib\+::\+Data\+Cover\+::is\+\_\+vector\+\_\+in\+\_\+cube (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec}{, }\item[{\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{Cube\+Id}} const \&}]{cube\+\_\+id}{}\end{DoxyParamCaption}) const}
+
+Determine whether a data point is inside a cube, taking overlaps into account 
+\begin{DoxyParams}{Parameters}
+{\em vec} & the data point \\
+\hline
+{\em cube\+\_\+id} & the cube to test against \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the cube contains the point, else false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DataCover_8h}{Data\+Cover.\+h}}\item 
+\mbox{\hyperlink{DataCover_8cpp}{Data\+Cover.\+cpp}}\end{DoxyCompactItemize}

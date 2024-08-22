@@ -1,0 +1,70 @@
+\doxysection{Mapper\+Lib\+::Complex\+Factory Class Reference}
+\hypertarget{classMapperLib_1_1ComplexFactory}{}\label{classMapperLib_1_1ComplexFactory}\index{MapperLib::ComplexFactory@{MapperLib::ComplexFactory}}
+
+
+Abstract factory class for creating \doxylink{classMapperLib_1_1Complex}{Complex} objects.  
+
+
+
+
+{\ttfamily \#include $<$Cech\+Complex.\+h$>$}
+
+Inheritance diagram for Mapper\+Lib\+::Complex\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMapperLib_1_1ComplexFactory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classMapperLib_1_1ComplexFactory_af1977282ae7faf28f682e03b2fe732fc}{\texorpdfstring{$\sim$}{\string~}\+Complex\+Factory}} ()=default
+\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}} $>$ \mbox{\hyperlink{classMapperLib_1_1ComplexFactory_a0412eb4b0b3c337e73b38d8aaed26ad9}{create\+\_\+complex}} (\mbox{\hyperlink{classMapperLib_1_1DataCover}{Data\+Cover}} const \&data\+\_\+cover) const =0
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classMapperLib_1_1Complex}{Complex} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract factory class for creating \doxylink{classMapperLib_1_1Complex}{Complex} objects. 
+
+This class provides an interface for creating instances of \doxylink{classMapperLib_1_1Complex}{Complex} subclasses. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1ComplexFactory_af1977282ae7faf28f682e03b2fe732fc}\index{MapperLib::ComplexFactory@{MapperLib::ComplexFactory}!````~ComplexFactory@{\texorpdfstring{$\sim$}{\string~}ComplexFactory}}
+\index{````~ComplexFactory@{\texorpdfstring{$\sim$}{\string~}ComplexFactory}!MapperLib::ComplexFactory@{MapperLib::ComplexFactory}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ComplexFactory()}{\string~ComplexFactory()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1ComplexFactory_af1977282ae7faf28f682e03b2fe732fc} 
+virtual Mapper\+Lib\+::\+Complex\+Factory\+::\texorpdfstring{$\sim$}{\string~}\+Complex\+Factory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1ComplexFactory_a0412eb4b0b3c337e73b38d8aaed26ad9}\index{MapperLib::ComplexFactory@{MapperLib::ComplexFactory}!create\_complex@{create\_complex}}
+\index{create\_complex@{create\_complex}!MapperLib::ComplexFactory@{MapperLib::ComplexFactory}}
+\doxysubsubsection{\texorpdfstring{create\_complex()}{create\_complex()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1ComplexFactory_a0412eb4b0b3c337e73b38d8aaed26ad9} 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}} $>$ Mapper\+Lib\+::\+Complex\+Factory\+::create\+\_\+complex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMapperLib_1_1DataCover}{Data\+Cover}} const \&}]{data\+\_\+cover}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Creates a \doxylink{classMapperLib_1_1Complex}{Complex} object. 
+
+This method must be implemented by derived classes to create a specific type of \doxylink{classMapperLib_1_1Complex}{Complex}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+cover} & A reference to the \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created \doxylink{classMapperLib_1_1Complex}{Complex} object. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_a9aeb5e2b4bacbf8ba415af473a13ed64}{Mapper\+Lib\+::\+Cech\+Complex\+Factory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CechComplex_8h}{Cech\+Complex.\+h}}\end{DoxyCompactItemize}

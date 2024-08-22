@@ -1,0 +1,77 @@
+\doxysection{Mapper\+Lib\+::Simplex Struct Reference}
+\hypertarget{structMapperLib_1_1Simplex}{}\label{structMapperLib_1_1Simplex}\index{MapperLib::Simplex@{MapperLib::Simplex}}
+
+
+Struct representing a simplex.  
+
+
+
+
+{\ttfamily \#include $<$typedefs.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ \mbox{\hyperlink{structMapperLib_1_1Simplex_af62ed7a6be9292a8cf740fc9c1ab9be1}{get\+\_\+points}} ()
+\item 
+\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} \mbox{\hyperlink{structMapperLib_1_1Simplex_a2a5f7f53c4061fecb80451defe68eaf3}{dimension}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{structMapperLib_1_1Simplex_a19cc93204b83f7e93e94a4123a7bdd69}{num\+\_\+nodes}} () const
+\item 
+\mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} \mbox{\hyperlink{structMapperLib_1_1Simplex_a2becede89350485285a28f9298cc920c}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t index) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ \mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}}
+\begin{DoxyCompactList}\small\item\em The points making up the simplex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct representing a simplex. 
+
+A simplex consisting of node ids instead of actual points to save space. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structMapperLib_1_1Simplex_a2a5f7f53c4061fecb80451defe68eaf3}\index{MapperLib::Simplex@{MapperLib::Simplex}!dimension@{dimension}}
+\index{dimension@{dimension}!MapperLib::Simplex@{MapperLib::Simplex}}
+\doxysubsubsection{\texorpdfstring{dimension()}{dimension()}}
+{\footnotesize\ttfamily \label{structMapperLib_1_1Simplex_a2a5f7f53c4061fecb80451defe68eaf3} 
+\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} Mapper\+Lib\+::\+Simplex\+::dimension (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{structMapperLib_1_1Simplex_af62ed7a6be9292a8cf740fc9c1ab9be1}\index{MapperLib::Simplex@{MapperLib::Simplex}!get\_points@{get\_points}}
+\index{get\_points@{get\_points}!MapperLib::Simplex@{MapperLib::Simplex}}
+\doxysubsubsection{\texorpdfstring{get\_points()}{get\_points()}}
+{\footnotesize\ttfamily \label{structMapperLib_1_1Simplex_af62ed7a6be9292a8cf740fc9c1ab9be1} 
+std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ Mapper\+Lib\+::\+Simplex\+::get\+\_\+points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{structMapperLib_1_1Simplex_a19cc93204b83f7e93e94a4123a7bdd69}\index{MapperLib::Simplex@{MapperLib::Simplex}!num\_nodes@{num\_nodes}}
+\index{num\_nodes@{num\_nodes}!MapperLib::Simplex@{MapperLib::Simplex}}
+\doxysubsubsection{\texorpdfstring{num\_nodes()}{num\_nodes()}}
+{\footnotesize\ttfamily \label{structMapperLib_1_1Simplex_a19cc93204b83f7e93e94a4123a7bdd69} 
+size\+\_\+t Mapper\+Lib\+::\+Simplex\+::num\+\_\+nodes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{structMapperLib_1_1Simplex_a2becede89350485285a28f9298cc920c}\index{MapperLib::Simplex@{MapperLib::Simplex}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!MapperLib::Simplex@{MapperLib::Simplex}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{structMapperLib_1_1Simplex_a2becede89350485285a28f9298cc920c} 
+\mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} Mapper\+Lib\+::\+Simplex\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}\index{MapperLib::Simplex@{MapperLib::Simplex}!points@{points}}
+\index{points@{points}!MapperLib::Simplex@{MapperLib::Simplex}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily \label{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286} 
+std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}}$>$ Mapper\+Lib\+::\+Simplex\+::points}
+
+
+
+The points making up the simplex. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{typedefs_8h}{typedefs.\+h}}\end{DoxyCompactItemize}

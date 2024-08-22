@@ -1,0 +1,32 @@
+\doxysection{Clusterer.\+h}
+\hypertarget{Clusterer_8h_source}{}\label{Clusterer_8h_source}\mbox{\hyperlink{Clusterer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jakob\ on\ 23.06.24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ CLUSTERER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ CLUSTERER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{typedefs.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e}{Cluster}}\ =\ std::vector<PointId>;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{ClusterAssignment}}\ =\ std::vector<Cluster>;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classMapperLib_1_1Clusterer_a67f4d1ae4ff5650bf3deecc3023e1ef2}{\string~Clusterer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{ClusterAssignment}}\ \mbox{\hyperlink{classMapperLib_1_1Clusterer_adef21f27b5c9b94e771c2a8c0423f28d}{predict}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\ \&data,\ std::vector<PointId>\ data\_filter)\ =\ 0;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \}\ \textcolor{comment}{//\ cluster}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CLUSTERER\_H}}
+
+\end{DoxyCode}

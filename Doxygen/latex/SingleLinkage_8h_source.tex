@@ -1,0 +1,42 @@
+\doxysection{Single\+Linkage.\+h}
+\hypertarget{SingleLinkage_8h_source}{}\label{SingleLinkage_8h_source}\mbox{\hyperlink{SingleLinkage_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jakob\ on\ 14.06.24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ SINGLELINKAGE\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ SINGLELINKAGE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Clusterer_8h}{Clusterer.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LinalgHelpers_8h}{LinalgHelpers.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1SingleLinkage}{SingleLinkage}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1SingleLinkage_ae784909e4132f5f4386afe4da8a7efe8}{SingleLinkage}}(std::optional<int>\ num\_clusters,\ std::optional<Scalar>\ distance\_threshold);}
+\DoxyCodeLine{00024\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ std::shared\_ptr<Clusterer>\ \mbox{\hyperlink{classMapperLib_1_1SingleLinkage_a7545efb82e90f54ed37b5270f392bf09}{make\_shared}}(std::optional<int>\ num\_clusters,\ std::optional<Scalar>\ distance\_threshold);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{ClusterAssignment}}\ \mbox{\hyperlink{classMapperLib_1_1SingleLinkage_a91afc235b42c9c23fb858a35fb6f61a3}{predict}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\ \&data,\ std::vector<PointId>\ data\_filter)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}\ min\_distance(}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ distances,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::vector<PointId>\ \textcolor{keyword}{const}\&\ cluster1,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::vector<PointId>\ \textcolor{keyword}{const}\&\ cluster2}
+\DoxyCodeLine{00033\ \ \ \ \ );}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::optional<size\_t>\ \_num\_clusters;}
+\DoxyCodeLine{00036\ \ \ \ \ std::optional<Scalar>\ \_distance\_threshold;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \}\ \textcolor{comment}{//\ Cluster}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SINGLELINKAGE\_H}}
+
+\end{DoxyCode}

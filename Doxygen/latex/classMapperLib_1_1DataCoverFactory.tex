@@ -1,0 +1,132 @@
+\doxysection{Mapper\+Lib\+::Data\+Cover\+Factory Class Reference}
+\hypertarget{classMapperLib_1_1DataCoverFactory}{}\label{classMapperLib_1_1DataCoverFactory}\index{MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}}
+
+
+Factory class creating \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} objects.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Cover.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a870044be81a11d826f331c7c11db0c1a}{Data\+Cover\+Factory}} (size\+\_\+t resolution, double perc\+\_\+overlap, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ minima=std\+::nullopt, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ maxima=std\+::nullopt)
+\item 
+\mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_aa147862a095173580f21a187d3d49a21}{Data\+Cover\+Factory}} (std\+::vector$<$ size\+\_\+t $>$ resolution, double perc\+\_\+overlap, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ minima=std\+::nullopt, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ maxima=std\+::nullopt)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1DataCover}{Data\+Cover}} $>$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a71a2bf5292027bdf366dccb51936cbc2}{create\+\_\+data\+\_\+cover}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&data) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory}} $>$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a17642c676a59ec983f924f463b946880}{make\+\_\+shared}} (size\+\_\+t resolution, double perc\+\_\+overlap, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ minima=std\+::nullopt, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ maxima=std\+::nullopt)
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory}} $>$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a779244b50408ff47665c53fe712f1fb8}{make\+\_\+shared}} (std\+::vector$<$ size\+\_\+t $>$ resolution, double perc\+\_\+overlap, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ minima=std\+::nullopt, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$ maxima=std\+::nullopt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory class creating \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} objects. 
+
+used to create the object within the map method of \doxylink{classMapperLib_1_1Mapper}{Mapper} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1DataCoverFactory_a870044be81a11d826f331c7c11db0c1a}\index{MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}!DataCoverFactory@{DataCoverFactory}}
+\index{DataCoverFactory@{DataCoverFactory}!MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}}
+\doxysubsubsection{\texorpdfstring{DataCoverFactory()}{DataCoverFactory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCoverFactory_a870044be81a11d826f331c7c11db0c1a} 
+Mapper\+Lib\+::\+Data\+Cover\+Factory\+::\+Data\+Cover\+Factory (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{resolution}{, }\item[{double}]{perc\+\_\+overlap}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{minima}{ = {\ttfamily std\+:\+:nullopt}, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{maxima}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption})}
+
+Constructor for \doxylink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory} with single resolution 
+\begin{DoxyParams}{Parameters}
+{\em resolution} & Single resolution value for all dimensions \\
+\hline
+{\em perc\+\_\+overlap} & Percentage of overlap between hypercubes \\
+\hline
+{\em minima} & Optional minima for each dimension \\
+\hline
+{\em maxima} & Optional maxima for each dimension \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMapperLib_1_1DataCoverFactory_aa147862a095173580f21a187d3d49a21}\index{MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}!DataCoverFactory@{DataCoverFactory}}
+\index{DataCoverFactory@{DataCoverFactory}!MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}}
+\doxysubsubsection{\texorpdfstring{DataCoverFactory()}{DataCoverFactory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCoverFactory_aa147862a095173580f21a187d3d49a21} 
+Mapper\+Lib\+::\+Data\+Cover\+Factory\+::\+Data\+Cover\+Factory (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{resolution}{, }\item[{double}]{perc\+\_\+overlap}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{minima}{ = {\ttfamily std\+:\+:nullopt}, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{maxima}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption})}
+
+Constructor for \doxylink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory} with multiple resolutions 
+\begin{DoxyParams}{Parameters}
+{\em resolution} & Vector of resolution values for each dimension \\
+\hline
+{\em perc\+\_\+overlap} & Percentage of overlap between hypercubes \\
+\hline
+{\em minima} & Optional minima for each dimension \\
+\hline
+{\em maxima} & Optional maxima for each dimension \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1DataCoverFactory_a71a2bf5292027bdf366dccb51936cbc2}\index{MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}!create\_data\_cover@{create\_data\_cover}}
+\index{create\_data\_cover@{create\_data\_cover}!MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}}
+\doxysubsubsection{\texorpdfstring{create\_data\_cover()}{create\_data\_cover()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCoverFactory_a71a2bf5292027bdf366dccb51936cbc2} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1DataCover}{Mapper\+Lib\+::\+Data\+Cover}} $>$ Mapper\+Lib\+::\+Data\+Cover\+Factory\+::create\+\_\+data\+\_\+cover (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{data}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+Create a \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} object 
+\begin{DoxyParams}{Parameters}
+{\em data} & A reference to the data points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Unique pointer to a new \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} instance 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCoverFactory_a17642c676a59ec983f924f463b946880}\index{MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}!make\_shared@{make\_shared}}
+\index{make\_shared@{make\_shared}!MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}}
+\doxysubsubsection{\texorpdfstring{make\_shared()}{make\_shared()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCoverFactory_a17642c676a59ec983f924f463b946880} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory}{Mapper\+Lib\+::\+Data\+Cover\+Factory}} $>$ Mapper\+Lib\+::\+Data\+Cover\+Factory\+::make\+\_\+shared (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{resolution}{, }\item[{double}]{perc\+\_\+overlap}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{minima}{ = {\ttfamily std\+:\+:nullopt}, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{maxima}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Static factory method to create a shared pointer to \doxylink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory} 
+\begin{DoxyParams}{Parameters}
+{\em resolution} & Single resolution value for all dimensions \\
+\hline
+{\em perc\+\_\+overlap} & Percentage of overlap between hypercubes \\
+\hline
+{\em minima} & Optional minima for each dimension \\
+\hline
+{\em maxima} & Optional maxima for each dimension \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to a new \doxylink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory} instance 
+\end{DoxyReturn}
+\Hypertarget{classMapperLib_1_1DataCoverFactory_a779244b50408ff47665c53fe712f1fb8}\index{MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}!make\_shared@{make\_shared}}
+\index{make\_shared@{make\_shared}!MapperLib::DataCoverFactory@{MapperLib::DataCoverFactory}}
+\doxysubsubsection{\texorpdfstring{make\_shared()}{make\_shared()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1DataCoverFactory_a779244b50408ff47665c53fe712f1fb8} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory}{Mapper\+Lib\+::\+Data\+Cover\+Factory}} $>$ Mapper\+Lib\+::\+Data\+Cover\+Factory\+::make\+\_\+shared (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$}]{resolution}{, }\item[{double}]{perc\+\_\+overlap}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{minima}{ = {\ttfamily std\+:\+:nullopt}, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} $>$}]{maxima}{ = {\ttfamily std\+:\+:nullopt}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+Static factory method to create a shared pointer to \doxylink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory} 
+\begin{DoxyParams}{Parameters}
+{\em resolution} & Vector of resolution values for each dimension \\
+\hline
+{\em perc\+\_\+overlap} & Percentage of overlap between hypercubes \\
+\hline
+{\em minima} & Optional minima for each dimension \\
+\hline
+{\em maxima} & Optional maxima for each dimension \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to a new \doxylink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory} instance 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{DataCover_8h}{Data\+Cover.\+h}}\item 
+\mbox{\hyperlink{DataCover_8cpp}{Data\+Cover.\+cpp}}\end{DoxyCompactItemize}

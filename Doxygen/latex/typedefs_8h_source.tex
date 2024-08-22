@@ -1,0 +1,69 @@
+\doxysection{typedefs.\+h}
+\hypertarget{typedefs_8h_source}{}\label{typedefs_8h_source}\mbox{\hyperlink{typedefs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jakob\ on\ 23.06.24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TYPEDEFS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TYPEDEFS\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}\ =\ double;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ =\ std::vector<Scalar>;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ =\ std::vector<std::vector<Scalar>>;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{PointId}}\ =\ size\_t;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ =\ size\_t;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_aafa0f084b7d2217d828b2de319afbdf2}{SimplexId}}\ =\ size\_t;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932}{ClusterId}}\ =\ size\_t;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{IntegerCubeId}}\ =\ size\_t;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMapperLib_1_1Simplex}{Simplex}}\{}
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<PointId>\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]\ std::vector<PointId>\ \mbox{\hyperlink{structMapperLib_1_1Simplex_af62ed7a6be9292a8cf740fc9c1ab9be1}{get\_points}}()\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}};\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a2a5f7f53c4061fecb80451defe68eaf3}{dimension}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}}.size()\ -\/\ 1;\}}
+\DoxyCodeLine{00031\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a19cc93204b83f7e93e94a4123a7bdd69}{num\_nodes}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}}.size();\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{PointId}}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a2becede89350485285a28f9298cc920c}{operator[]}}(\textcolor{keywordtype}{size\_t}\ index)\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ \mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}}[index];\ \}}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMapperLib_1_1MapperCluster}{MapperCluster}}\{}
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<PointId>\ \mbox{\hyperlink{structMapperLib_1_1MapperCluster_a0173acf2bd2df498fed9fbb7b3fccf9e}{points}};}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932}{ClusterId}}\ \mbox{\hyperlink{structMapperLib_1_1MapperCluster_ad361a4dfe72d255f67077e00ff235603}{cluster\_id}};}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{IntegerCubeId}}\ \mbox{\hyperlink{structMapperLib_1_1MapperCluster_a19940c452631cc8b37b622f66d93c26a}{integer\_cube\_id}};}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{typedefs_8h_a8b3d67619d9d143f1e0c7fb98b2d6720}{operator<<}}(std::ostream\&\ os,\ std::vector<size\_t>\ \textcolor{keyword}{const}\&\ vec)}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}["{}};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ elt:\ vec)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ os\ <<\ elt\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)b\(\backslash\)b]"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{typedefs_8h_a8b3d67619d9d143f1e0c7fb98b2d6720}{operator<<}}(std::ostream\&\ os,\ \mbox{\hyperlink{structMapperLib_1_1Simplex}{MapperLib::Simplex}}\ \textcolor{keyword}{const}\&\ simplex)}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ os\ <<\ simplex.\mbox{\hyperlink{structMapperLib_1_1Simplex_a92852e568a7691c025888578a0dd8286}{points}};}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{typedefs_8h_a8b3d67619d9d143f1e0c7fb98b2d6720}{operator<<}}(std::ostream\&\ os,\ std::vector<MapperLib::Simplex>\ \textcolor{keyword}{const}\&\ vec)}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}["{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ elt:\ vec)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ os\ <<\ elt\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)b\(\backslash\)b]"{}};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TYPEDEFS\_H}}
+
+\end{DoxyCode}

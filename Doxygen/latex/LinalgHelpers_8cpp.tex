@@ -1,0 +1,43 @@
+\doxysection{Linalg\+Helpers.\+cpp File Reference}
+\hypertarget{LinalgHelpers_8cpp}{}\label{LinalgHelpers_8cpp}\index{LinalgHelpers.cpp@{LinalgHelpers.cpp}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}Linalg\+Helpers.\+h"{}}\newline
+{\ttfamily \#include "{}Data\+Cover.\+h"{}}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceMapperLib}{Mapper\+Lib}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} \mbox{\hyperlink{namespaceMapperLib_abc7a5aea97564d53fb4c5c54810e5a5a}{Mapper\+Lib\+::euclididan\+\_\+distance}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec1, \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec2)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} \mbox{\hyperlink{namespaceMapperLib_a839d54134108785920d409094425398b}{Mapper\+Lib\+::maximum\+\_\+distance}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec1, \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec2)
+\item 
+bool \mbox{\hyperlink{namespaceMapperLib_a1fd8ada6816e9133434227eeca845f5d}{Mapper\+Lib\+::check\+\_\+data\+\_\+equal\+\_\+dimension}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&mat)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} \mbox{\hyperlink{namespaceMapperLib_a8e1914fe2779409cd325d7258df2d47e}{Mapper\+Lib\+::get\+\_\+data\+\_\+dimension}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&mat)
+\item 
+std\+::ostream \& \mbox{\hyperlink{LinalgHelpers_8cpp_acf557803e840f0d17a058bf3ca5b8b2f}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Mapper\+Lib\+::\+Vector}} const \&vec)
+\item 
+std\+::ostream \& \mbox{\hyperlink{LinalgHelpers_8cpp_a1adb6870f4d665f66b59cb41ba0a3302}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Mapper\+Lib\+::\+Matrix}} const \&mat)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{LinalgHelpers_8cpp_a1adb6870f4d665f66b59cb41ba0a3302}\index{LinalgHelpers.cpp@{LinalgHelpers.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!LinalgHelpers.cpp@{LinalgHelpers.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{LinalgHelpers_8cpp_a1adb6870f4d665f66b59cb41ba0a3302} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Mapper\+Lib\+::\+Matrix}} const \&}]{mat}{}\end{DoxyParamCaption})}
+
+\Hypertarget{LinalgHelpers_8cpp_acf557803e840f0d17a058bf3ca5b8b2f}\index{LinalgHelpers.cpp@{LinalgHelpers.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!LinalgHelpers.cpp@{LinalgHelpers.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{LinalgHelpers_8cpp_acf557803e840f0d17a058bf3ca5b8b2f} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Mapper\+Lib\+::\+Vector}} const \&}]{vec}{}\end{DoxyParamCaption})}
+

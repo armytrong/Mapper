@@ -1,0 +1,75 @@
+\doxysection{Mapper\+Lib\+::Single\+Linkage Class Reference}
+\hypertarget{classMapperLib_1_1SingleLinkage}{}\label{classMapperLib_1_1SingleLinkage}\index{MapperLib::SingleLinkage@{MapperLib::SingleLinkage}}
+
+
+primitive implementation of single linkage clustering  
+
+
+
+
+{\ttfamily \#include $<$Single\+Linkage.\+h$>$}
+
+Inheritance diagram for Mapper\+Lib\+::Single\+Linkage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMapperLib_1_1SingleLinkage}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapperLib_1_1SingleLinkage_ae784909e4132f5f4386afe4da8a7efe8}{Single\+Linkage}} (std\+::optional$<$ int $>$ num\+\_\+clusters, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$ distance\+\_\+threshold)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{Cluster\+Assignment}} \mbox{\hyperlink{classMapperLib_1_1SingleLinkage_a91afc235b42c9c23fb858a35fb6f61a3}{predict}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&data, std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ data\+\_\+filter) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Mapper\+Lib\+::\+Clusterer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classMapperLib_1_1Clusterer_a67f4d1ae4ff5650bf3deecc3023e1ef2}{\texorpdfstring{$\sim$}{\string~}\+Clusterer}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}} $>$ \mbox{\hyperlink{classMapperLib_1_1SingleLinkage_a7545efb82e90f54ed37b5270f392bf09}{make\+\_\+shared}} (std\+::optional$<$ int $>$ num\+\_\+clusters, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$ distance\+\_\+threshold)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+primitive implementation of single linkage clustering 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]use \doxylink{classMapperLib_1_1SLink__SingleLinkage}{SLink\+\_\+\+Single\+Linkage} instead \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1SingleLinkage_ae784909e4132f5f4386afe4da8a7efe8}\index{MapperLib::SingleLinkage@{MapperLib::SingleLinkage}!SingleLinkage@{SingleLinkage}}
+\index{SingleLinkage@{SingleLinkage}!MapperLib::SingleLinkage@{MapperLib::SingleLinkage}}
+\doxysubsubsection{\texorpdfstring{SingleLinkage()}{SingleLinkage()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1SingleLinkage_ae784909e4132f5f4386afe4da8a7efe8} 
+Mapper\+Lib\+::\+Single\+Linkage\+::\+Single\+Linkage (\begin{DoxyParamCaption}\item[{std\+::optional$<$ int $>$}]{num\+\_\+clusters}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$}]{distance\+\_\+threshold}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1SingleLinkage_a7545efb82e90f54ed37b5270f392bf09}\index{MapperLib::SingleLinkage@{MapperLib::SingleLinkage}!make\_shared@{make\_shared}}
+\index{make\_shared@{make\_shared}!MapperLib::SingleLinkage@{MapperLib::SingleLinkage}}
+\doxysubsubsection{\texorpdfstring{make\_shared()}{make\_shared()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1SingleLinkage_a7545efb82e90f54ed37b5270f392bf09} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}} $>$ Mapper\+Lib\+::\+Single\+Linkage\+::make\+\_\+shared (\begin{DoxyParamCaption}\item[{std\+::optional$<$ int $>$}]{num\+\_\+clusters}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$}]{distance\+\_\+threshold}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{classMapperLib_1_1SingleLinkage_a91afc235b42c9c23fb858a35fb6f61a3}\index{MapperLib::SingleLinkage@{MapperLib::SingleLinkage}!predict@{predict}}
+\index{predict@{predict}!MapperLib::SingleLinkage@{MapperLib::SingleLinkage}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1SingleLinkage_a91afc235b42c9c23fb858a35fb6f61a3} 
+\mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{Cluster\+Assignment}} Mapper\+Lib\+::\+Single\+Linkage\+::predict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{data}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$}]{data\+\_\+filter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classMapperLib_1_1Clusterer_adef21f27b5c9b94e771c2a8c0423f28d}{Mapper\+Lib\+::\+Clusterer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SingleLinkage_8h}{Single\+Linkage.\+h}}\item 
+\mbox{\hyperlink{SingleLinkage_8cpp}{Single\+Linkage.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,130 @@
+\doxysection{Data\+Cover.\+h}
+\hypertarget{DataCover_8h_source}{}\label{DataCover_8h_source}\mbox{\hyperlink{DataCover_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jakob\ on\ 24.06.24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ DATACOVER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DATACOVER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SingleLinkage_8h}{SingleLinkage.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{typedefs.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ =\ std::vector<int>;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCover_aef8eb65410a73c4a3c6ec9c953847cf6}{DataCover}}(}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ resolution,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ perc\_overlap,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ data,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::optional<Vector>\ minima\ =\ std::nullopt,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::optional<Vector>\ maxima\ =\ std::nullopt}
+\DoxyCodeLine{00039\ \ \ \ \ );}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCover_aef8eb65410a73c4a3c6ec9c953847cf6}{DataCover}}(}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::vector<size\_t>\ resolution,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ perc\_overlap,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ data,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::optional<Vector>\ minima\ =\ std::nullopt,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::optional<Vector>\ maxima\ =\ std::nullopt}
+\DoxyCodeLine{00055\ \ \ \ \ );}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a1af4e2627c712ace8b47d6256c8afe4c}{get\_native\_cube\_id}}(\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \ \ [[nodiscard]]\ std::vector<PointId>\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a4fa02bd48a0de254705d9fb23bb621b7}{get\_points\_in\_cube}}(\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{IntegerCubeId}}\ cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ [[nodiscard]]\ std::vector<IntegerCubeId>\ \mbox{\hyperlink{classMapperLib_1_1DataCover_aecc6803f35bf3281e861f68004b4b934}{get\_neighbor\_cubes}}(\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{IntegerCubeId}}\ integer\_cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{IntegerCubeId}}\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a399707d160ed1da4ca1d3c6b8cb976ff}{convert\_to\_integer\_cube\_id}}(\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ \textcolor{keyword}{const}\&\ cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a9efddce3e40b99989103d277a1721a59}{convert\_to\_cube\_id}}(\mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{IntegerCubeId}}\ integer\_cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a3b48796f88dac2ce2e17605fbf2b98c5}{get\_total\_num\_cubes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a8aa22c414aa2878e721fe0812eb98734}{get\_num\_cubes\_in\_dimension}}(\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ dim)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMapperLib_1_1DataCover_ae91d9e1cde3092930f38f20c02719b6d}{is\_vector\_in\_cube}}(\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec,\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ \textcolor{keyword}{const}\&\ cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ initialize\_cube\_cache()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::vector<CubeId>\ get\_parent\_cubes(\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}\ get\_data\_min\_in\_dimension(\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ dimension)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}\ get\_data\_max\_in\_dimension(\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ dimension)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ initialize\_minima\_from\_data();}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ initialize\_maxima\_from\_data();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ get\_cube\_center(\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ \textcolor{keyword}{const}\&\ cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ \ \ \ \ [[nodiscard]]\ std::vector<CubeId>\ \mbox{\hyperlink{classMapperLib_1_1DataCover_aecc6803f35bf3281e861f68004b4b934}{get\_neighbor\_cubes}}(\mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{CubeId}}\ \textcolor{keyword}{const}\&\ cube\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ std::vector<size\_t>\ \_resolution;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{double}\ \textcolor{keyword}{const}\ \_perc\_overlap;}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ \_data;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \textcolor{keyword}{const}\ \_data\_dimension;}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \_minima;}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \_maxima;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{mutable}\ std::optional<std::vector<std::vector<PointId>>>\ \_cube\_cache;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1DataCoverFactory}{DataCoverFactory}}}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a870044be81a11d826f331c7c11db0c1a}{DataCoverFactory}}(}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ resolution,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ perc\_overlap,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ std::optional<Vector>\ minima\ =\ std::nullopt,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ std::optional<Vector>\ maxima\ =\ std::nullopt}
+\DoxyCodeLine{00155\ \ \ \ \ );}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a870044be81a11d826f331c7c11db0c1a}{DataCoverFactory}}(}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::vector<size\_t>\ resolution,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ perc\_overlap,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ std::optional<Vector>\ minima\ =\ std::nullopt,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ std::optional<Vector>\ maxima\ =\ std::nullopt}
+\DoxyCodeLine{00169\ \ \ \ \ );}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00179\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ std::shared\_ptr<DataCoverFactory>\ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a17642c676a59ec983f924f463b946880}{make\_shared}}(}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ resolution,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ perc\_overlap,}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ std::optional<Vector>\ minima\ =\ std::nullopt,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ std::optional<Vector>\ maxima\ =\ std::nullopt}
+\DoxyCodeLine{00184\ \ \ \ \ );}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00194\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ std::shared\_ptr<DataCoverFactory>\ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a17642c676a59ec983f924f463b946880}{make\_shared}}(}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ std::vector<size\_t>\ resolution,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ perc\_overlap,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ std::optional<Vector>\ minima\ =\ std::nullopt,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ std::optional<Vector>\ maxima\ =\ std::nullopt}
+\DoxyCodeLine{00199\ \ \ \ \ );}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ \ \ \ \ [[nodiscard]]\ std::unique\_ptr<DataCover>\ \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory_a71a2bf5292027bdf366dccb51936cbc2}{create\_data\_cover}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ data)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00209\ \ \ \ \ std::vector<size\_t>\ \_resolution;\ }
+\DoxyCodeLine{00210\ \ \ \ \ std::optional<size\_t>\ \_single\_resolution;\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{double}\ \_perc\_overlap;\ }
+\DoxyCodeLine{00212\ \ \ \ \ std::optional<Vector>\ \_minima;\ }
+\DoxyCodeLine{00213\ \ \ \ \ std::optional<Vector>\ \_maxima;\ }
+\DoxyCodeLine{00214\ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \}\ \textcolor{comment}{//\ Mapper}}
+\DoxyCodeLine{00219\ std::ostream\&\ \mbox{\hyperlink{DataCover_8h_a6799b84b1e6fa1b0e1b481963b5b32d7}{operator<<}}(std::ostream\&\ stream,\ \mbox{\hyperlink{classMapperLib_1_1DataCover_a301e30c400a3288b407281a55058fa63}{MapperLib::DataCover::CubeId}}\ \textcolor{keyword}{const}\&\ vec);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DATACOVER\_H}}
+
+\end{DoxyCode}

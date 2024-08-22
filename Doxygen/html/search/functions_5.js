@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['make_5fshared_1',['make_shared',['../classMapperLib_1_1CechComplexFactory.html#a33fe9bc7dace1b51de7c4d99a32022e7',1,'MapperLib::CechComplexFactory::make_shared()'],['../classMapperLib_1_1DataCoverFactory.html#a17642c676a59ec983f924f463b946880',1,'MapperLib::DataCoverFactory::make_shared(size_t resolution, double perc_overlap, std::optional&lt; Vector &gt; minima=std::nullopt, std::optional&lt; Vector &gt; maxima=std::nullopt)'],['../classMapperLib_1_1DataCoverFactory.html#a779244b50408ff47665c53fe712f1fb8',1,'MapperLib::DataCoverFactory::make_shared(std::vector&lt; size_t &gt; resolution, double perc_overlap, std::optional&lt; Vector &gt; minima=std::nullopt, std::optional&lt; Vector &gt; maxima=std::nullopt)'],['../classMapperLib_1_1CoordinatePlaneProjection.html#a0a5309dde79c8938dc7e0a0059196a45',1,'MapperLib::CoordinatePlaneProjection::make_shared()'],['../classMapperLib_1_1SingleLinkage.html#a7545efb82e90f54ed37b5270f392bf09',1,'MapperLib::SingleLinkage::make_shared()'],['../classMapperLib_1_1SLink__SingleLinkage.html#ac2abde1342b9f79e8aadff6404069bf4',1,'MapperLib::SLink_SingleLinkage::make_shared()']]],
+  ['map_2',['map',['../classMapperLib_1_1Mapper.html#ad2e0f50f67d758f37516883926892c25',1,'MapperLib::Mapper']]],
+  ['mapper_3',['Mapper',['../classMapperLib_1_1Mapper.html#a9fa2b03eb229f89d642b14342c9413c6',1,'MapperLib::Mapper']]],
+  ['maximum_5fdistance_4',['maximum_distance',['../namespaceMapperLib.html#a839d54134108785920d409094425398b',1,'MapperLib']]]
+];

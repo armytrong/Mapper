@@ -1,0 +1,31 @@
+\doxysection{Linalg\+Helpers.\+h}
+\hypertarget{LinalgHelpers_8h_source}{}\label{LinalgHelpers_8h_source}\mbox{\hyperlink{LinalgHelpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jakob\ on\ 23.06.24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LINALGHELPERS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LINALGHELPERS\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{typedefs.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\ \{}
+\DoxyCodeLine{00018\ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}\ \mbox{\hyperlink{namespaceMapperLib_abc7a5aea97564d53fb4c5c54810e5a5a}{euclididan\_distance}}(\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec1,\ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec2);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}\ \mbox{\hyperlink{namespaceMapperLib_a839d54134108785920d409094425398b}{maximum\_distance}}(\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec1,\ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec2);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceMapperLib_a1fd8ada6816e9133434227eeca845f5d}{check\_data\_equal\_dimension}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ mat);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ \mbox{\hyperlink{namespaceMapperLib_a8e1914fe2779409cd325d7258df2d47e}{get\_data\_dimension}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ mat);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceMapperLib_a510ce11454bb545b809fb907411ea7c5}{print}}(\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}}\ \textcolor{keyword}{const}\&\ vec);}
+\DoxyCodeLine{00044\ \}\ \textcolor{comment}{//\ Helper}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ std::ostream\&\ \mbox{\hyperlink{LinalgHelpers_8h_acf557803e840f0d17a058bf3ca5b8b2f}{operator<<}}(std::ostream\&\ os,\ \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{MapperLib::Vector}}\ \textcolor{keyword}{const}\&\ vec);}
+\DoxyCodeLine{00047\ std::ostream\&\ \mbox{\hyperlink{LinalgHelpers_8h_acf557803e840f0d17a058bf3ca5b8b2f}{operator<<}}(std::ostream\&\ os,\ \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{MapperLib::Matrix}}\ \textcolor{keyword}{const}\&\ mat);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LINALGHELPERS\_H}}
+
+\end{DoxyCode}

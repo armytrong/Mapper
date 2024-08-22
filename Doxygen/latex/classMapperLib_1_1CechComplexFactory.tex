@@ -1,0 +1,112 @@
+\doxysection{Mapper\+Lib\+::Cech\+Complex\+Factory Class Reference}
+\hypertarget{classMapperLib_1_1CechComplexFactory}{}\label{classMapperLib_1_1CechComplexFactory}\index{MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}}
+
+
+Factory class for creating \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} objects.  
+
+
+
+
+{\ttfamily \#include $<$Cech\+Complex.\+h$>$}
+
+Inheritance diagram for Mapper\+Lib\+::Cech\+Complex\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMapperLib_1_1CechComplexFactory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_ad85a9b2d563247ddf62da0e16848962c}{Cech\+Complex\+Factory}} (\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} max\+\_\+dimension)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classMapperLib_1_1CechComplexFactory}{Cech\+Complex\+Factory} object. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}} $>$ \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_a9aeb5e2b4bacbf8ba415af473a13ed64}{create\+\_\+complex}} (\mbox{\hyperlink{classMapperLib_1_1DataCover}{Data\+Cover}} const \&data\+\_\+cover) const override
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMapperLib_1_1ComplexFactory}{Mapper\+Lib\+::\+Complex\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classMapperLib_1_1ComplexFactory_af1977282ae7faf28f682e03b2fe732fc}{\texorpdfstring{$\sim$}{\string~}\+Complex\+Factory}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1ComplexFactory}{Complex\+Factory}} $>$ \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_a33fe9bc7dace1b51de7c4d99a32022e7}{make\+\_\+shared}} (\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} max\+\_\+dimension)
+\begin{DoxyCompactList}\small\item\em Creates a shared pointer to a \doxylink{classMapperLib_1_1CechComplexFactory}{Cech\+Complex\+Factory} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory class for creating \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} objects. 
+
+This class implements the \doxylink{classMapperLib_1_1ComplexFactory}{Complex\+Factory} interface to create instances of \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1CechComplexFactory_ad85a9b2d563247ddf62da0e16848962c}\index{MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}!CechComplexFactory@{CechComplexFactory}}
+\index{CechComplexFactory@{CechComplexFactory}!MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}}
+\doxysubsubsection{\texorpdfstring{CechComplexFactory()}{CechComplexFactory()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1CechComplexFactory_ad85a9b2d563247ddf62da0e16848962c} 
+Mapper\+Lib\+::\+Cech\+Complex\+Factory\+::\+Cech\+Complex\+Factory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}}]{max\+\_\+dimension}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classMapperLib_1_1CechComplexFactory}{Cech\+Complex\+Factory} object. 
+
+Initializes the factory with the specified maximum dimension.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+dimension} & The maximum dimension for the \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} to be created. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1CechComplexFactory_a9aeb5e2b4bacbf8ba415af473a13ed64}\index{MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}!create\_complex@{create\_complex}}
+\index{create\_complex@{create\_complex}!MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}}
+\doxysubsubsection{\texorpdfstring{create\_complex()}{create\_complex()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1CechComplexFactory_a9aeb5e2b4bacbf8ba415af473a13ed64} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}} $>$ Mapper\+Lib\+::\+Cech\+Complex\+Factory\+::create\+\_\+complex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMapperLib_1_1DataCover}{Data\+Cover}} const \&}]{data\+\_\+cover}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} object. 
+
+This method creates a new instance of \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} using the provided \doxylink{classMapperLib_1_1DataCover}{Data\+Cover}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+cover} & A reference to the \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unique pointer to the created \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMapperLib_1_1ComplexFactory_a0412eb4b0b3c337e73b38d8aaed26ad9}{Mapper\+Lib\+::\+Complex\+Factory}}.
+
+\Hypertarget{classMapperLib_1_1CechComplexFactory_a33fe9bc7dace1b51de7c4d99a32022e7}\index{MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}!make\_shared@{make\_shared}}
+\index{make\_shared@{make\_shared}!MapperLib::CechComplexFactory@{MapperLib::CechComplexFactory}}
+\doxysubsubsection{\texorpdfstring{make\_shared()}{make\_shared()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1CechComplexFactory_a33fe9bc7dace1b51de7c4d99a32022e7} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1ComplexFactory}{Complex\+Factory}} $>$ Mapper\+Lib\+::\+Cech\+Complex\+Factory\+::make\+\_\+shared (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}}]{max\+\_\+dimension}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+
+
+Creates a shared pointer to a \doxylink{classMapperLib_1_1CechComplexFactory}{Cech\+Complex\+Factory} instance. 
+
+This static method allows for easy memory management and object creation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+dimension} & The maximum dimension for the \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the newly created \doxylink{classMapperLib_1_1CechComplexFactory}{Cech\+Complex\+Factory} instance. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CechComplex_8h}{Cech\+Complex.\+h}}\item 
+\mbox{\hyperlink{CechComplex_8cpp}{Cech\+Complex.\+cpp}}\end{DoxyCompactItemize}

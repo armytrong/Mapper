@@ -1,0 +1,102 @@
+\doxysection{Mapper\+Lib\+::SLink\+\_\+\+Single\+Linkage Class Reference}
+\hypertarget{classMapperLib_1_1SLink__SingleLinkage}{}\label{classMapperLib_1_1SLink__SingleLinkage}\index{MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}}
+
+
+efficient implementation of single linkage clustering  
+
+
+
+
+{\ttfamily \#include $<$SLink\+\_\+\+Single\+Linkage.\+h$>$}
+
+Inheritance diagram for Mapper\+Lib\+::SLink\+\_\+\+Single\+Linkage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMapperLib_1_1SLink__SingleLinkage}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapperLib_1_1SLink__SingleLinkage_a0c2d8338842382c0e6c2a44b06924863}{SLink\+\_\+\+Single\+Linkage}} (std\+::optional$<$ int $>$ num\+\_\+clusters, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$ distance\+\_\+threshold)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classMapperLib_1_1SLink__SingleLinkage}{SLink\+\_\+\+Single\+Linkage} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{Cluster\+Assignment}} \mbox{\hyperlink{classMapperLib_1_1SLink__SingleLinkage_ad8f616416ef1b00a233cc26dca3fad92}{predict}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&data, std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$ data\+\_\+filter) override
+\begin{DoxyCompactList}\small\item\em Predicts cluster assignments for the given dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Mapper\+Lib\+::\+Clusterer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classMapperLib_1_1Clusterer_a67f4d1ae4ff5650bf3deecc3023e1ef2}{\texorpdfstring{$\sim$}{\string~}\+Clusterer}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}} $>$ \mbox{\hyperlink{classMapperLib_1_1SLink__SingleLinkage_ac2abde1342b9f79e8aadff6404069bf4}{make\+\_\+shared}} (std\+::optional$<$ int $>$ num\+\_\+clusters, std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$ distance\+\_\+threshold)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+efficient implementation of single linkage clustering 
+
+A class implementing the SLINK algorithm for single linkage agglomorative clustering. The main algorithm is due to R. Sibson\+: "{}\+SLINK\+: An optimally efficient algorithm for the single-\/link cluster method"{}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMapperLib_1_1SLink__SingleLinkage_a0c2d8338842382c0e6c2a44b06924863}\index{MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}!SLink\_SingleLinkage@{SLink\_SingleLinkage}}
+\index{SLink\_SingleLinkage@{SLink\_SingleLinkage}!MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}}
+\doxysubsubsection{\texorpdfstring{SLink\_SingleLinkage()}{SLink\_SingleLinkage()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1SLink__SingleLinkage_a0c2d8338842382c0e6c2a44b06924863} 
+Mapper\+Lib\+::\+SLink\+\_\+\+Single\+Linkage\+::\+SLink\+\_\+\+Single\+Linkage (\begin{DoxyParamCaption}\item[{std\+::optional$<$ int $>$}]{num\+\_\+clusters}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$}]{distance\+\_\+threshold}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{classMapperLib_1_1SLink__SingleLinkage}{SLink\+\_\+\+Single\+Linkage} object. 
+
+Initializes the clustering parameters with the provided optional values. At least one of num\+\_\+clusters or distance\+\_\+threshold must be specified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+clusters} & Optional integer specifying the desired number of clusters. \\
+\hline
+{\em distance\+\_\+threshold} & Optional Scalar value for the maximum distance threshold. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMapperLib_1_1SLink__SingleLinkage_ac2abde1342b9f79e8aadff6404069bf4}\index{MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}!make\_shared@{make\_shared}}
+\index{make\_shared@{make\_shared}!MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}}
+\doxysubsubsection{\texorpdfstring{make\_shared()}{make\_shared()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1SLink__SingleLinkage_ac2abde1342b9f79e8aadff6404069bf4} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}} $>$ Mapper\+Lib\+::\+SLink\+\_\+\+Single\+Linkage\+::make\+\_\+shared (\begin{DoxyParamCaption}\item[{std\+::optional$<$ int $>$}]{num\+\_\+clusters}{, }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} $>$}]{distance\+\_\+threshold}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{classMapperLib_1_1SLink__SingleLinkage_ad8f616416ef1b00a233cc26dca3fad92}\index{MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}!predict@{predict}}
+\index{predict@{predict}!MapperLib::SLink\_SingleLinkage@{MapperLib::SLink\_SingleLinkage}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily \label{classMapperLib_1_1SLink__SingleLinkage_ad8f616416ef1b00a233cc26dca3fad92} 
+\mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{Cluster\+Assignment}} Mapper\+Lib\+::\+SLink\+\_\+\+Single\+Linkage\+::predict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{data}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} $>$}]{data\+\_\+filter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Predicts cluster assignments for the given dataset. 
+
+This method performs the single linkage clustering algorithm on the provided data and returns the cluster assignments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A constant reference to a Matrix containing the data points to be clustered. \\
+\hline
+{\em data\+\_\+filter} & A vector of ids that filtering the data points for prediction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cluster\+Assignment The resulting cluster assignments for the input data. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classMapperLib_1_1Clusterer_adef21f27b5c9b94e771c2a8c0423f28d}{Mapper\+Lib\+::\+Clusterer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SLink__SingleLinkage_8h}{SLink\+\_\+\+Single\+Linkage.\+h}}\item 
+\mbox{\hyperlink{SLink__SingleLinkage_8cpp}{SLink\+\_\+\+Single\+Linkage.\+cpp}}\end{DoxyCompactItemize}

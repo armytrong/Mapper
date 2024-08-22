@@ -1,0 +1,100 @@
+\doxysection{Cech\+Complex.\+h}
+\hypertarget{CechComplex_8h_source}{}\label{CechComplex_8h_source}\mbox{\hyperlink{CechComplex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jgier\ on\ 29.06.2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAPPER\_CECHCOMPLEX\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAPPER\_CECHCOMPLEX\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <generator>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{typedefs.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }DataCover;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classMapperLib_1_1Complex_a44ac50febffab61b323231be6f3958e6}{\string~Complex}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00036\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::vector<Simplex>\ \mbox{\hyperlink{classMapperLib_1_1Complex_ad02f96886349b9a12f6ad101fa1774f2}{generate}}(std::vector<MapperCluster>\ \textcolor{keyword}{const}\ \&clusters)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1CechComplex}{CechComplex}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ NUM\_THREADS\ =\ 8;\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1CechComplex_afab556d7de0daf35e415b929500d082b}{CechComplex}}(\mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \textcolor{keyword}{const}\&\ data\_cover,\ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ max\_dimension);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00071\ \ \ \ \ [[nodiscard]]\ std::vector<Simplex>\ \mbox{\hyperlink{classMapperLib_1_1CechComplex_aa8d269608b3811224a9f78217c86811a}{generate}}(std::vector<MapperCluster>\ \textcolor{keyword}{const}\&\ clusters)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{using\ }Iterator\ =\ std::vector<MapperCluster>::const\_iterator;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{using\ }ClustersByCube\ =\ std::vector<std::vector<MapperCluster\ const*>>;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{class\ }SimplexComputer\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ Iterator\ \_begin;\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ Iterator\ \_end;\ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ ClustersByCube\&\ \_clusters\_by\_cube;\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ \textcolor{keyword}{const}\ \_dim;\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \textcolor{keyword}{const}\&\ \_data\_cover;\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::vector<Simplex>\ \_own\_result;\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::vector<Simplex>\ \&\_result;\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::mutex\ \&\_mutex;\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \_id;\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ id\_counter\ =\ 0;\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ SimplexComputer(Iterator\ begin,\ Iterator\ end,\ ClustersByCube\ \&clusters\_by\_cube,\ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ dim,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \textcolor{keyword}{const}\ \&data\_cover,\ std::vector<Simplex>\ \&result,\ std::mutex\ \&mutex);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ compute();}
+\DoxyCodeLine{00119\ \ \ \ \ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{struct\ }ComputerWrapper\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ SimplexComputer\ \&\ computer;\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator()()\textcolor{keyword}{\ const\ }\{\ computer.compute();\ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00145\ \ \ \ \ [[nodiscard]]\ std::vector<Simplex>\ generate\_k\_simplices(std::vector<MapperCluster>\ \textcolor{keyword}{const}\&\ clusters,\ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ k)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{static}\ std::generator<std::vector<size\_t>>\ generate\_k\_subsets\_of\_range(\textcolor{keywordtype}{size\_t}\ index\_max,\ \textcolor{keywordtype}{size\_t}\ k);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ check\_cluster\_intersection(std::vector<MapperCluster\ const*>\ \textcolor{keyword}{const}\&\ all\_clusters,\ std::vector<size\_t>\ \textcolor{keyword}{const}\&\ relevant\_indices);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<size\_t>\ get\_vector\_intersection(std::vector<size\_t>\ vec\_1,\ std::vector<size\_t>\ vec\_2);\ \textcolor{comment}{//ToDo:\ This\ should\ probably\ be\ in\ a\ helper\ file}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \textcolor{keyword}{const}\ \&\_data\_cover;\ }
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ \_max\_dimension;\ }
+\DoxyCodeLine{00182\ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1ComplexFactory}{ComplexFactory}}\ \{}
+\DoxyCodeLine{00191\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classMapperLib_1_1ComplexFactory_af1977282ae7faf28f682e03b2fe732fc}{\string~ComplexFactory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00202\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::unique\_ptr<Complex>\ \mbox{\hyperlink{classMapperLib_1_1ComplexFactory_a0412eb4b0b3c337e73b38d8aaed26ad9}{create\_complex}}(\mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \textcolor{keyword}{const}\&\ data\_cover)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00203\ \};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1CechComplexFactory}{CechComplexFactory}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classMapperLib_1_1ComplexFactory}{ComplexFactory}}\ \{}
+\DoxyCodeLine{00212\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_ad85a9b2d563247ddf62da0e16848962c}{CechComplexFactory}}(\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ max\_dimension);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00230\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ std::shared\_ptr<ComplexFactory>\ \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_a33fe9bc7dace1b51de7c4d99a32022e7}{make\_shared}}(\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ max\_dimension);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00240\ \ \ \ \ [[nodiscard]]\ std::unique\_ptr<Complex>\ \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory_a9aeb5e2b4bacbf8ba415af473a13ed64}{create\_complex}}(\mbox{\hyperlink{classMapperLib_1_1DataCover}{DataCover}}\ \textcolor{keyword}{const}\ \&data\_cover)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}}\ \_max\_dimension;\ }
+\DoxyCodeLine{00244\ \};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \}\ \textcolor{comment}{//\ namespace\ MapperLib}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAPPER\_CECHCOMPLEX\_H}}
+
+\end{DoxyCode}

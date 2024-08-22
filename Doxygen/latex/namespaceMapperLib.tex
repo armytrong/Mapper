@@ -1,0 +1,212 @@
+\doxysection{Mapper\+Lib Namespace Reference}
+\hypertarget{namespaceMapperLib}{}\label{namespaceMapperLib}\index{MapperLib@{MapperLib}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMapperLib_1_1CechComplex}{Cech\+Complex}}
+\begin{DoxyCompactList}\small\item\em Class for generating Cech complexes from overlapping clusters. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1CechComplexFactory}{Cech\+Complex\+Factory}}
+\begin{DoxyCompactList}\small\item\em Factory class for creating \doxylink{classMapperLib_1_1CechComplex}{Cech\+Complex} objects. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1Clusterer}{Clusterer}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for clustering algorithms. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1Complex}{Complex}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for simplicial complexes. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1ComplexFactory}{Complex\+Factory}}
+\begin{DoxyCompactList}\small\item\em Abstract factory class for creating \doxylink{classMapperLib_1_1Complex}{Complex} objects. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1CoordinatePlaneProjection}{Coordinate\+Plane\+Projection}}
+\begin{DoxyCompactList}\small\item\em projection of data to coordinate planes \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1DataCover}{Data\+Cover}}
+\begin{DoxyCompactList}\small\item\em Class for sectioning data into hypercubes. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1DataCoverFactory}{Data\+Cover\+Factory}}
+\begin{DoxyCompactList}\small\item\em Factory class creating \doxylink{classMapperLib_1_1DataCover}{Data\+Cover} objects. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1Mapper}{Mapper}}
+\begin{DoxyCompactList}\small\item\em class implementing the \doxylink{classMapperLib_1_1Mapper}{Mapper} algorithm \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structMapperLib_1_1MapperCluster}{Mapper\+Cluster}}
+\begin{DoxyCompactList}\small\item\em a cluster containign additional information \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1Projection}{Projection}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for projection methods. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structMapperLib_1_1Simplex}{Simplex}}
+\begin{DoxyCompactList}\small\item\em Struct representing a simplex. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1SingleLinkage}{Single\+Linkage}}
+\begin{DoxyCompactList}\small\item\em primitive implementation of single linkage clustering \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMapperLib_1_1SLink__SingleLinkage}{SLink\+\_\+\+Single\+Linkage}}
+\begin{DoxyCompactList}\small\item\em efficient implementation of single linkage clustering \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e}{Cluster}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}}$>$
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{Cluster\+Assignment}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e}{Cluster}}$>$
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} = double
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}$>$
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}$>$$>$
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_aafa0f084b7d2217d828b2de319afbdf2}{Simplex\+Id}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932}{Cluster\+Id}} = size\+\_\+t
+\item 
+using \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Integer\+Cube\+Id}} = size\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} \mbox{\hyperlink{namespaceMapperLib_abc7a5aea97564d53fb4c5c54810e5a5a}{euclididan\+\_\+distance}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec1, \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec2)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} \mbox{\hyperlink{namespaceMapperLib_a839d54134108785920d409094425398b}{maximum\+\_\+distance}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec1, \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec2)
+\item 
+bool \mbox{\hyperlink{namespaceMapperLib_a1fd8ada6816e9133434227eeca845f5d}{check\+\_\+data\+\_\+equal\+\_\+dimension}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&mat)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} \mbox{\hyperlink{namespaceMapperLib_a8e1914fe2779409cd325d7258df2d47e}{get\+\_\+data\+\_\+dimension}} (\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&mat)
+\item 
+void \mbox{\hyperlink{namespaceMapperLib_a510ce11454bb545b809fb907411ea7c5}{print}} (\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&vec)
+\item 
+\mbox{\hyperlink{namespaceMapperLib_a4f04d1d26a776fe33849a60d2dcf0ae6}{PYBIND11\+\_\+\+MODULE}} (Mapper\+Lib, mod)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e}\index{MapperLib@{MapperLib}!Cluster@{Cluster}}
+\index{Cluster@{Cluster}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{Cluster}{Cluster}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e} 
+using \mbox{\hyperlink{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e}{Mapper\+Lib\+::\+Cluster}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Point\+Id}}$>$}
+
+\Hypertarget{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}\index{MapperLib@{MapperLib}!ClusterAssignment@{ClusterAssignment}}
+\index{ClusterAssignment@{ClusterAssignment}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{ClusterAssignment}{ClusterAssignment}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3} 
+using \mbox{\hyperlink{namespaceMapperLib_af42c95c6f16afed3104152ead8cea2c3}{Mapper\+Lib\+::\+Cluster\+Assignment}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_ab6046e4bc276e0803f09c9659a99f19e}{Cluster}}$>$}
+
+\Hypertarget{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932}\index{MapperLib@{MapperLib}!ClusterId@{ClusterId}}
+\index{ClusterId@{ClusterId}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{ClusterId}{ClusterId}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932} 
+using \mbox{\hyperlink{namespaceMapperLib_a2fd58ab9b147cb1795743f5a144e5932}{Mapper\+Lib\+::\+Cluster\+Id}} = size\+\_\+t}
+
+\Hypertarget{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}\index{MapperLib@{MapperLib}!Dimension@{Dimension}}
+\index{Dimension@{Dimension}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{Dimension}{Dimension}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835} 
+using \mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Mapper\+Lib\+::\+Dimension}} = size\+\_\+t}
+
+\Hypertarget{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}\index{MapperLib@{MapperLib}!IntegerCubeId@{IntegerCubeId}}
+\index{IntegerCubeId@{IntegerCubeId}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{IntegerCubeId}{IntegerCubeId}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f} 
+using \mbox{\hyperlink{namespaceMapperLib_ad709d68aee4fd7b56573d2133976be1f}{Mapper\+Lib\+::\+Integer\+Cube\+Id}} = size\+\_\+t}
+
+\Hypertarget{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}\index{MapperLib@{MapperLib}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{Matrix}{Matrix}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac} 
+using \mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Mapper\+Lib\+::\+Matrix}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}$>$$>$}
+
+\Hypertarget{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}\index{MapperLib@{MapperLib}!PointId@{PointId}}
+\index{PointId@{PointId}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{PointId}{PointId}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6} 
+using \mbox{\hyperlink{namespaceMapperLib_a7031822b71bd43b216660336f8b756e6}{Mapper\+Lib\+::\+Point\+Id}} = size\+\_\+t}
+
+\Hypertarget{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}\index{MapperLib@{MapperLib}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{Scalar}{Scalar}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_abc202115018296e2b1d439f961ad647b} 
+using \mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Mapper\+Lib\+::\+Scalar}} = double}
+
+\Hypertarget{namespaceMapperLib_aafa0f084b7d2217d828b2de319afbdf2}\index{MapperLib@{MapperLib}!SimplexId@{SimplexId}}
+\index{SimplexId@{SimplexId}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{SimplexId}{SimplexId}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_aafa0f084b7d2217d828b2de319afbdf2} 
+using \mbox{\hyperlink{namespaceMapperLib_aafa0f084b7d2217d828b2de319afbdf2}{Mapper\+Lib\+::\+Simplex\+Id}} = size\+\_\+t}
+
+\Hypertarget{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}\index{MapperLib@{MapperLib}!Vector@{Vector}}
+\index{Vector@{Vector}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02} 
+using \mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Mapper\+Lib\+::\+Vector}} = std\+::vector$<$\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}}$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceMapperLib_a1fd8ada6816e9133434227eeca845f5d}\index{MapperLib@{MapperLib}!check\_data\_equal\_dimension@{check\_data\_equal\_dimension}}
+\index{check\_data\_equal\_dimension@{check\_data\_equal\_dimension}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{check\_data\_equal\_dimension()}{check\_data\_equal\_dimension()}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a1fd8ada6816e9133434227eeca845f5d} 
+bool Mapper\+Lib\+::check\+\_\+data\+\_\+equal\+\_\+dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{mat}{}\end{DoxyParamCaption})}
+
+Checks that all columns in the matrix have the same dimension, as Matrix is only an alias for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::vector\texorpdfstring{$<$}{<}Scalar\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} 
+\begin{DoxyParams}{Parameters}
+{\em mat} & the matrix to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if matrix is valid, else false 
+\end{DoxyReturn}
+\Hypertarget{namespaceMapperLib_abc7a5aea97564d53fb4c5c54810e5a5a}\index{MapperLib@{MapperLib}!euclididan\_distance@{euclididan\_distance}}
+\index{euclididan\_distance@{euclididan\_distance}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{euclididan\_distance()}{euclididan\_distance()}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_abc7a5aea97564d53fb4c5c54810e5a5a} 
+\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} Mapper\+Lib\+::euclididan\+\_\+distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec1}{, }\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec2}{}\end{DoxyParamCaption})}
+
+Compute the euclidian distance between two data points, i.\+e. $\|v_1 - v_2\|_2$ 
+\begin{DoxyParams}{Parameters}
+{\em vec1} & first data point \\
+\hline
+{\em vec2} & second data point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the vectors as a Scalar 
+\end{DoxyReturn}
+\Hypertarget{namespaceMapperLib_a8e1914fe2779409cd325d7258df2d47e}\index{MapperLib@{MapperLib}!get\_data\_dimension@{get\_data\_dimension}}
+\index{get\_data\_dimension@{get\_data\_dimension}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{get\_data\_dimension()}{get\_data\_dimension()}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a8e1914fe2779409cd325d7258df2d47e} 
+\mbox{\hyperlink{namespaceMapperLib_a38db85dd0a6af33d5fc281423f0d8835}{Dimension}} Mapper\+Lib\+::get\+\_\+data\+\_\+dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}} const \&}]{mat}{}\end{DoxyParamCaption})}
+
+Get the dimension of the data points in a matrix 
+\begin{DoxyParams}{Parameters}
+{\em mat} & the data matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dimension of the first element in the matrix 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This method does not assert that all data points are of equal length! 
+\end{DoxyWarning}
+\Hypertarget{namespaceMapperLib_a839d54134108785920d409094425398b}\index{MapperLib@{MapperLib}!maximum\_distance@{maximum\_distance}}
+\index{maximum\_distance@{maximum\_distance}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{maximum\_distance()}{maximum\_distance()}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a839d54134108785920d409094425398b} 
+\mbox{\hyperlink{namespaceMapperLib_abc202115018296e2b1d439f961ad647b}{Scalar}} Mapper\+Lib\+::maximum\+\_\+distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec1}{, }\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec2}{}\end{DoxyParamCaption})}
+
+Compute the maximum distance between two data points, i.\+e. $\|v_1 - v_2\|_\infty$ 
+\begin{DoxyParams}{Parameters}
+{\em vec1} & first data point \\
+\hline
+{\em vec2} & second data point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the vectors as a Scalar 
+\end{DoxyReturn}
+\Hypertarget{namespaceMapperLib_a510ce11454bb545b809fb907411ea7c5}\index{MapperLib@{MapperLib}!print@{print}}
+\index{print@{print}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a510ce11454bb545b809fb907411ea7c5} 
+void Mapper\+Lib\+::print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceMapperLib_ae0b67a246a87926feb407eb46e3a5d02}{Vector}} const \&}]{vec}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceMapperLib_a4f04d1d26a776fe33849a60d2dcf0ae6}\index{MapperLib@{MapperLib}!PYBIND11\_MODULE@{PYBIND11\_MODULE}}
+\index{PYBIND11\_MODULE@{PYBIND11\_MODULE}!MapperLib@{MapperLib}}
+\doxysubsubsection{\texorpdfstring{PYBIND11\_MODULE()}{PYBIND11\_MODULE()}}
+{\footnotesize\ttfamily \label{namespaceMapperLib_a4f04d1d26a776fe33849a60d2dcf0ae6} 
+Mapper\+Lib\+::\+PYBIND11\+\_\+\+MODULE (\begin{DoxyParamCaption}\item[{Mapper\+Lib}]{}{, }\item[{mod}]{}{}\end{DoxyParamCaption})}
+

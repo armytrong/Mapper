@@ -1,0 +1,47 @@
+\doxysection{Mapper.\+h}
+\hypertarget{Mapper_8h_source}{}\label{Mapper_8h_source}\mbox{\hyperlink{Mapper_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ jakob\ on\ 26.06.24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAPPER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAPPER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{typedefs.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{DataCover_8h}{DataCover.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMapperLib}{MapperLib}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }ComplexFactory;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }Complex;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }Clusterer;}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }Projection;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMapperLib_1_1Mapper}{Mapper}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classMapperLib_1_1Mapper_a9fa2b03eb229f89d642b14342c9413c6}{Mapper}}(}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::shared\_ptr<DataCoverFactory>\ data\_cover\_factory,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::shared\_ptr<ComplexFactory>\ complex\_factory,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::shared\_ptr<Clusterer>\ clusterer,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::shared\_ptr<Projection>\ projection}
+\DoxyCodeLine{00043\ \ \ \ \ );}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ std::vector<Simplex>\ \mbox{\hyperlink{classMapperLib_1_1Mapper_ad2e0f50f67d758f37516883926892c25}{map}}(\mbox{\hyperlink{namespaceMapperLib_a72deaf7aa5506b9c55362c3f41004eac}{Matrix}}\ \textcolor{keyword}{const}\&\ data)\ ;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \ \ std::shared\_ptr<DataCoverFactory>\ \_data\_cover\_factory;}
+\DoxyCodeLine{00054\ \ \ \ \ std::shared\_ptr<ComplexFactory>\ \_complex\_factory;}
+\DoxyCodeLine{00055\ \ \ \ \ std::shared\_ptr<Clusterer>\ \_clusterer;}
+\DoxyCodeLine{00056\ \ \ \ \ std::shared\_ptr<Projection>\ \_projection;}
+\DoxyCodeLine{00057\ \ \ \ \ std::unique\_ptr<DataCover>\ \_data\_cover;}
+\DoxyCodeLine{00058\ \ \ \ \ std::unique\_ptr<Complex>\ \_complex;}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \}\ \textcolor{comment}{//\ Mapper}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAPPER\_H}}
+
+\end{DoxyCode}
