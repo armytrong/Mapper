@@ -18,10 +18,8 @@ std::vector<Simplex> CechComplex::generate(const std::vector<MapperCluster> &clu
     std::vector<Simplex> result;
     std::cout << "-> Generating Simplical Complex" << std::endl;
     for(Dimension k = 0; k <= _max_dimension; k++){
-        std::cout << "--> Generating Simplices of Dimension " << k << " ...";
         auto const k_simplices = generate_k_simplices(clusters, k);
         result.insert(result.end(), k_simplices.begin(), k_simplices.end());
-        std::cout << "\b\b\bDone!" << std::endl;
     }
     return result;
 }

@@ -133,6 +133,11 @@ private:
      */
     [[nodiscard]] Scalar get_data_max_in_dimension(Dimension dimension) const;
 
+    [[nodiscard]] Scalar get_data_width_in_dimension(Dimension dimension) const;
+
+    static constexpr Scalar overhang_factor = 0.05;
+    [[nodiscard]] Scalar get_overhang_length_in_dimension(Dimension dimension) const;
+
     void initialize_minima_from_data();
     void initialize_maxima_from_data();
 

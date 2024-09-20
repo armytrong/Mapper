@@ -173,11 +173,21 @@ Scalar DataCover::get_data_max_in_dimension(Dimension const dimension) const
     return max;
 }
 
+Scalar DataCover::get_data_width_in_dimension(Dimension const dimension) const
+{
+    return get_data_max_in_dimension(dimension) - get_data_min_in_dimension(dimension);
+}
+
+Scalar DataCover::get_overhang_length_in_dimension(Dimension const dimension) const
+{
+    return get_data_width_in_dimension(dimension) * overhang_factor;
+}
+
 void DataCover::initialize_minima_from_data()
 {
     _minima.resize(_data_dimension);
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
-        _minima[dim] = get_data_min_in_dimension(dim) - 0.5; // TODO: ugly
+        _minima[dim] = get_data_min_in_dimension(dim) - get_overhang_length_in_dimension(dim);
     }
 }
 
@@ -186,7 +196,7 @@ void DataCover::initialize_maxima_from_data()
 {
     _maxima.resize(_data_dimension);
     for(Dimension dim = 0; dim < _data_dimension; dim++) {
-        _maxima[dim] = get_data_max_in_dimension(dim) + 0.5; // TODO: ugly
+        _maxima[dim] = get_data_max_in_dimension(dim) + get_overhang_length_in_dimension(dim);
     }
 }
 
